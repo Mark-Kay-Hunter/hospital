@@ -1,5 +1,6 @@
 package kr.co.hospital;
 
-public class MemberController {
+public class MemberController 
+{
 
 }
