@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 
-public class PaymentController {
+public class BoardController {
 	
-	@RequestMapping("/payment/show")
-	public String show()
+	@RequestMapping("/board/write")
+	public String write()
 	{
-		return "/payment/show";
+		return "/board/write";
 	}
 
-	@RequestMapping("/payment/pay")
-	public String pay()
+	@RequestMapping("/board/list")
+	public String list()
 	{
-		return "/payment/pay";
-	}
+		return "/board/list";
+	}	
 
 }

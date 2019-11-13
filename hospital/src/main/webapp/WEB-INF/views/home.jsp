@@ -32,22 +32,23 @@
 <div id=temp>
 
 <!-- 각페이지별 링크 테스트합니다. 테스트 완료 후 temp div는 지워주세요. -->
-<a>　[　게시판-글쓰기　]　</a>
-<a>　[　게시판-글목록　]　</a><p>
+<a href="/board/write">　[　게시판-글쓰기　]　</a>
+<a href="/board/list">　[　게시판-글목록　]　</a><p>
 
-<a>　[　멤버-로그인　]　</a>
-<a>　[　멤버-회원가입　]　</a>
-<a>　[　게시판-정보수정　]　</a><p>
+<a href="/member/login">　[　멤버-로그인　]　</a>
+<a href="/member/signup">　[　멤버-회원가입　]　</a>
+<a href="/member/modufy">　[　게시판-정보수정　]　</a><p>
 
-<a>　[　결제-금액확인　]　</a>
-<a>　[　결제-실행　]　</a><p>
+<a href="/payment/cost">　[　결제-금액확인　]　</a>
+<a href="/payment/pay">　[　결제-실행　]　</a><p>
 
-<a>　[　예약-선택하기　]　</a>
-<a>　[　예약-검사예약　]　</a>
-<a>　[　예약-진료예약　]　</a><p>
+<a href="/reservation/select">　[　예약-선택하기　]　</a>
+<a href="/reservation/inspection">　[　예약-검사예약　]　</a>
+<a href="/reservation/doctor">　[　예약-진료예약　]　</a><p>
 
-<a>　[　일정-일정변경　]　</a>
-<a>　[　일정-일정취소　]　</a><p>
+<a href="/schedule/check">　[　일정-일정확인　]　</a>
+<a href="/schedule/change">　[　일정-일정변경　]　</a>
+<a href="/schedule/cancel">　[　일정-일정취소　]　</a><p>
 
 </div>
 
