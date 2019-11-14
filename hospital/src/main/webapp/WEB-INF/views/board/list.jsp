@@ -15,6 +15,12 @@
 
 </head>
 <body>
+<!-- 공지사항 부분
+- 최근 작성된 글이 상위로 이동
+- 분류 검색 기능 
+- 분류 value 값에 맞는 종류 출력
+- 조회수 부분  
+- 관리자(admin)로 로그인시 수정, 삭제, 작성 부분 나오기-->
 <table width="650" cellpadding="0" cellspacing="0">
     <tr>
         <td width="650" colspan="5">게시글 목록</td>
@@ -68,11 +74,11 @@
     </tr>
 		
 		<tr>
-        <td width="50">&nbsp;</td>
-        <td width="100">&nbsp;</td>
-        <td width="400">&nbsp;</td>
-        <td width="150">&nbsp;</td>
-        <td width="50">&nbsp;</td>
+        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="100" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="400" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="150" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
     </tr>
 		
 		<tr>
@@ -84,11 +90,11 @@
     </tr>
 		
 		<tr>
-        <td width="50">&nbsp;</td>
-        <td width="100">&nbsp;</td>
-        <td width="400">&nbsp;</td>
-        <td width="150">&nbsp;</td>
-        <td width="50">&nbsp;</td>
+        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="100" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="400" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="150" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
     </tr>
 		
 		<tr>
@@ -100,11 +106,11 @@
     </tr>
 		
 		<tr>
-        <td width="50">&nbsp;</td>
-        <td width="100">&nbsp;</td>
-        <td width="400">&nbsp;</td>
-        <td width="150">&nbsp;</td>
-        <td width="50">&nbsp;</td>
+        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="100" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="400" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="150" bgcolor="#EEEEEE">&nbsp;</td>
+        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
     </tr>
 		
 
