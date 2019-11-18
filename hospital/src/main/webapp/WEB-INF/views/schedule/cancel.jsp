@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <div id=sch_ins>
 <center><input type="checkbox" id="ins_1">[year]년 [month]년 [day]일 [hour]시 [minute]분에 [inpection]검진</center>
 <center><input type="checkbox" id="ins_2">[year]년 [month]년 [day]일 [hour]시 [minute]분에 [inpection]검진</center>
@@ -20,7 +19,7 @@
 <center><input type="checkbox" id="doc_2">[year]년 [month]년 [day]일 [hour]시 [minute]분에 [subject]과 [doctor]선생님 진료</center>
 </div>
 
-<p><p>
+<p></p>
 
 <div id="can_not">
 <center>내원으로 예약된 검사/진료일정취소는 전화(00-0000-0000)로 진행가능합니다.</center>

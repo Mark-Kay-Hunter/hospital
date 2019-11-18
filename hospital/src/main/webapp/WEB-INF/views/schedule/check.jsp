@@ -11,9 +11,7 @@
 	#sch_not { width:auto; height:20px; background-color:skyblue; }
 
 </style>
-
 </head>
-
 <body>
 
 <div id=sch_ins>
