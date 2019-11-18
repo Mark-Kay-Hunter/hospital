@@ -5,8 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- daum 도로명주소검색 API -->
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 <script>
 	// idno:: 자동생성합니다.
@@ -26,29 +25,56 @@
 			}
 	}
 	
-	function juso_search()  // 우편번호 버튼 클릭시 호출 함수
-	  {
-	    new daum.Postcode({
-	        oncomplete: function(data) {
-	            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-	                addr = data.roadAddress;
-	            } else { // 사용자가 지번 주소를 선택했을 경우(J)
-	                addr = data.jibunAddress;
-	            }
 
-	            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-	            document.pkc.zip.value = data.zonecode; // 우편번호
-	            document.pkc.adr1.value = addr;  // 주소
-	            // 커서를 상세주소 필드로 이동한다.
-	            document.pkc.adr2.focus();
-	        }
-	    }).open();
+	/* daum 도로명주소검색 API  */
+	function juso_search() {
+        new daum.Postcode({
+        	oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    fullAddr = data.roadAddress;
+                } 
+                else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    fullAddr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' ){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' ){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    fullAddr += (extraAddr !== '' ? ' (' + extraAddr + ')' : '');
+                    }
+                
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('zip').value = data.zonecode;
+                document.getElementById("adr1").value = fullAddr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("adr2").focus();
+            }
+        }).open();
+    
+    }
 </script>
 
 </head>
 <body>
 
-<<<<<<< HEAD
 <form name="member" action="member.jsp" onsubmit="return rule_check(this)">
 <!-- hidden 전부 여기에 몰빵 -->
 <input type=hidden name=phone>
@@ -104,24 +130,26 @@
                     <td height="15" align="center" width="97">우편번호</td>
                     <td height="30" width="248">
 
-<input type="text" name="zip" size="7" style="border:1px solid #DBDBDB;">
+<input type="text" name="zip" id="zip" style="border:1px solid #DBDBDB;" placeholder="우편번호 찾기">
 
                     </td>
                         <td width="141" height="30">
-                            <p align="center"><input type=button class=zip value=우편번호 onclick=juso_search()></p>
+                            <p align="center">
+                            <button type="button" onclick="juso_search()">우편번호 찾기</button>
+                            </p>
                         </td>
                 </tr>
                 <tr>
                     <td height="30" align="center" bgcolor="#FBF3F3" width="97">주소</td>
-                    <td bgcolor="#FBF3F3" colspan="2" width="389">
+                    <td bgcolor="#FBF3F3" colspan="2" width="389" >
 
-<input type="text" name="adr1" style="border:1px solid #DBDBDB;">
+<input type="text" name="adr1" id="adr1" style="border:1px solid #DBDBDB;" placeholder="주소">
 
                     </td>
                 </tr>
                 <tr>
                     <td height="30" align="center" width="97">세부주소</td>
-                    <td colspan="2" width="389"><input type="text" name="adr2" style="border:1px solid #DBDBDB;"></td>
+                    <td colspan="2" width="389"><input type="text" name="adr2" id="adr2" style="border:1px solid #DBDBDB;" placeholder="세부주소"></td>
                 </tr>
                 <tr>
                     <td height="15" align="center" bgcolor="#FBF3F3" width="97">전화번호</td>
@@ -161,126 +189,3 @@
  
 </body>
 </html>
-=======
-<form name="member" action="member.jsp">
- 
-<table width="590" cellspacing="0" cellpadding="3" align="center" border="0" style="font-family:돋움,Dotum,sans-serif;">
-    <col width="120"><col width="380">
-    <tr>
-        <td height="2" colspan="2" bgcolor="#FF7A96" width="584"></td>
-    </tr>
-    <tr>
-        <td height="1" colspan="2" bgcolor="#FFFFFF" width="584"></td>
-    </tr>
-    <tr>
-        <th height="30" colspan="2" bgcolor="#EEEEEE" style="color:#D24966;" width="584">회원가입</th>
-    </tr>
-    <tr>
-        <td height="1" colspan="2" bgcolor="#FFFFFF" width="584"></td>
-    </tr>
-    <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" width="584"></td>
-    </tr>
-    <tr>
-        <td height="30" bgcolor="#FFFFFF" align="center" width="98">ID(회원번호)</td>
-        <td bgcolor="#FFFFFF" width="480"><input type="text" name="idno" style="border:1px solid #DBDBDB;" maxlength="8"> ID(회원번호)는 자동생성됩니다</td>
-    </tr>
-    <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
-    </tr>
-    <tr>
-        <td height="30" bgcolor="#FBF3F3" align="center" width="98">비밀번호</td>
-        <td bgcolor="#FBF3F3" width="480"><input type="password" name="passwd" style="border:1px solid #DBDBDB;"></td>
-    </tr>
-    <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
-    </tr>
-    <tr>
-        <td height="30" bgcolor="#FBF3F3" align="center" width="98">비밀번호확인</td>
-        <td bgcolor="#FBF3F3" width="480"><input type="password" name="passre" style="border:1px solid #DBDBDB;"></td>
-    </tr>
-    <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
-    </tr>
-    <tr>
-        <td height="30" bgcolor="#FFFFFF" align="center" width="98">회원정보</td>
-        <td bgcolor="#FFFFFF" style="padding:0;" width="486">
-            <table width="100%" cellpadding="0" cellspacing="0" style="font-family:돋움,Dotum,sans-serif;">
-                <tr>
-                    <td height="15" align="center" width="97">성명</td>
-                    <td width="389" colspan="2"><input type="text" name="name" style="border:1px solid #DBDBDB;"></td>
-                </tr>
-                <tr>
-                    <td height="15" align="center" width="97">우편번호</td>
-                    <td height="30" width="248">
-
-<input type="text" name="zip" size="7" style="border:1px solid #DBDBDB;">
-
-                    </td>
-                        <td width="141" height="30">
-                            <p align="center">우편번호찾기</p>
-                        </td>
-                </tr>
-                <tr>
-                    <td height="30" align="center" bgcolor="#FBF3F3" width="97">주소</td>
-                    <td bgcolor="#FBF3F3" colspan="2" width="389">
-
-<input type="text" name="adr1" style="border:1px solid #DBDBDB;" size="52">
-
-                    </td>
-                </tr>
-                <tr>
-                    <td height="30" align="center" width="97">세부주소</td>
-                    <td colspan="2" width="389"><input type="text" name="adr2" style="border:1px solid #DBDBDB;" size="52"></td>
-                </tr>
-                    <tr>
-                    <td height="15" align="center" bgcolor="#FBF3F3" width="97">전화번호</td>
-                        <td bgcolor="#FBF3F3" colspan="2" width="389">
-                            <p>
-							
-							<select name="ph1">
-								<option>010</option>
-								<option>011</option>
-								<option>016</option>
-								<option>017</option>
-								<option>018</option>
-								<option>019</option>
-							</select>
-							
-							<input type="text" name="ph2" style="border:1px solid #DBDBDB;" size="5"><input type="text" name="ph3" style="border:1px solid #DBDBDB;" size="5"></p>
-                        </td>
-                    </tr>
-                <tr>
-                    <td height="15" align="center" bgcolor="#FBF3F3" width="97">이메일</td>
-                    <td height="30" colspan="2" bgcolor="#FBF3F3" width="389"><input type="text" name="email" style="border:1px solid #DBDBDB;"></td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
-    </tr>
-    <tr>
-        <td height="30" bgcolor="#FBF3F3" align="center" colspan="2" width="584">회원약관</td>
-    </tr>
-    <tr>
-        <td height="15" bgcolor="#FFFFFF" align="center" colspan="2" width="584">웅앵웅 쵸키포키</td>
-    </tr>
-    <tr>
-        <td height="15" align="center" colspan="2" bgcolor="white" width="584"><input type="checkbox" name="okay">약관에 동의하며 회원가입합니다.</td>
-    </tr>
-    <tr>
-        <td height="2" colspan="2" bgcolor="#FF7A96" width="584"></td>
-    </tr>
-    <tr>
-        <td colspan="2" align="center" height="40" width="584">
-            <input type="submit" value="보내기" style="font-size:12px; background-color:#EEEEEE; border:1px ridge #DBDBDB;">
-            <input type="reset" value="다시작성" style="font-size:12px; background-color:#EEEEEE; border:1px ridge #DBDBDB;">
-        </td>
-    </tr>
-</table>
-
-</form>
- 
-</body>
->>>>>>> refs/remotes/origin/master
