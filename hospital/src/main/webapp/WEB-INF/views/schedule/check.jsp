@@ -13,7 +13,12 @@
 </style>
 </head>
 <body>
-
+<!-- 예약 일정보여주기
+1. DB에서 id로 값 불러오기
+2. sch_ins => 이름(name), 년(year), 월(month), 일(day), 시(hour), 분(minute), 검진내용(inpection) 출력
+3. sch_doc => 이름(name), 년(year), 월(month), 일(day), 시(hour), 분(minute), 과(subject), 의사(doctor) 출력
+4. 일정변경하기 => userid값을 가지고 change.jsp로 이동
+5. 일정취소하기 => userid값을 가지고 cencel.jsp로 이동 -->
 <div id=sch_ins>
 <center>[name]님은 [year]년 [month]년 [day]일 [hour]시 [minute]분에 [inpection]검진예약이 있습니다.</center>
 </div>
