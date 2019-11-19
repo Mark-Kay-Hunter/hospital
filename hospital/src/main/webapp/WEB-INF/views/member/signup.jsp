@@ -82,18 +82,8 @@
                     <tr>
                     <td height="15" align="center" bgcolor="#FBF3F3" width="97">전화번호</td>
                         <td bgcolor="#FBF3F3" colspan="2" width="389">
-                            <p>
-							
-							<select name="ph1">
-								<option>010</option>
-								<option>011</option>
-								<option>016</option>
-								<option>017</option>
-								<option>018</option>
-								<option>019</option>
-							</select>
-							
-							<input type="text" name="ph2" style="border:1px solid #DBDBDB;" size="5"><input type="text" name="ph3" style="border:1px solid #DBDBDB;" size="5"></p>
+                            
+			 			<input type="text" name="phone" style="border:1px solid #DBDBDB;" size="12"> ('-' 없이 입력해주세요.)
                         </td>
                     </tr>
                 <tr>
