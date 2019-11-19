@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import = "java.util.*" %>
+<%
+  Calendar today = Calendar.getInstance();
+
+  String year = Integer.toString(today.get(Calendar.YEAR));
+  String month = Integer.toString(today.get(Calendar.MONTH)+1);
+  String date = Integer.toString(today.get(Calendar.DATE));
+  
+  String idno1 = (year+month+date);
+  
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +39,7 @@
 	}
 	
 	// 약관 동의 미체크시 "약관에 동의해주세요." 메세지창 띄우기
-	function rule_check(ck)  // 약관 동의 체크 _ 폰번호, 이메일 합쳐서 리턴
+	function rule_check(ck)  // 약관 동의 체크 _ idno 추가해서 리턴
 	{
 		if((document.member.okay.value)!=checked)   /* 나중에 다시 확인 */
 			{
@@ -37,8 +48,7 @@
 			}
 		else
 			{
-			  ck.phone.value=ck.p1.value+"-"+ck.p2.value+"-"+ck.p3.value;
-			  ck.email.value=ck.email1.value+"@"+ck.email2.value;
+			  idno=idno1+"";
 			  return true;
 			}
 	}
@@ -93,7 +103,7 @@
 </head>
 <body>
 
-<form name="member" action="member.jsp" onsubmit="return rule_check(this)">
+<form name="member" action="signup_com.jsp" onsubmit="return rule_check(this)">
 <!-- hidden 전부 여기에 몰빵 -->
 <input type=hidden name=phone>
 <input type=hidden name=email>
@@ -117,7 +127,7 @@
     </tr>
     <tr>
         <td height="30" bgcolor="#FFFFFF" align="center" width="98">ID(회원번호)</td>
-        <td bgcolor="#FFFFFF" width="480"><input type="text" name="idno" style="border:1px solid #DBDBDB;" maxlength="8" readonly> ID(회원번호)는 자동생성됩니다</td>
+        <td bgcolor="#FFFFFF" width="480"><input type="text" name="idno" id="idno" style="border:1px solid #DBDBDB;" maxlength="8" readonly> ID(회원번호)는 자동생성됩니다</td>
     </tr>
     <tr>
         <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>

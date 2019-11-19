@@ -2,6 +2,7 @@ package kr.co.hospital.dto;
 
 public class MemberDto 
 {
+	private String id;
 	private String idno;
 	private String passwd;
 	private String passre;
@@ -10,15 +11,17 @@ public class MemberDto
 	private String adr1;
 	private String adr2;
 	private String ph1;
+	private String ph2;
 	private String ph3;
 	private String em1;
 	private String em2;
 	
 	public MemberDto() {}
 
-	public MemberDto(String idno, String passwd, String passre, String name, String zip, String adr1, String adr2,
-			String ph1, String ph3, String em1, String em2) {
+	public MemberDto(String id, String idno, String passwd, String passre, String name, String zip, String adr1,
+			String adr2, String ph1, String ph2, String ph3, String em1, String em2) {
 		super();
+		this.id = id;
 		this.idno = idno;
 		this.passwd = passwd;
 		this.passre = passre;
@@ -27,9 +30,18 @@ public class MemberDto
 		this.adr1 = adr1;
 		this.adr2 = adr2;
 		this.ph1 = ph1;
+		this.ph2 = ph2;
 		this.ph3 = ph3;
 		this.em1 = em1;
 		this.em2 = em2;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getIdno() {
@@ -96,6 +108,14 @@ public class MemberDto
 		this.ph1 = ph1;
 	}
 
+	public String getPh2() {
+		return ph2;
+	}
+
+	public void setPh2(String ph2) {
+		this.ph2 = ph2;
+	}
+
 	public String getPh3() {
 		return ph3;
 	}
@@ -119,8 +139,7 @@ public class MemberDto
 	public void setEm2(String em2) {
 		this.em2 = em2;
 	}
-	
-	
-	
+
+
 
 }
