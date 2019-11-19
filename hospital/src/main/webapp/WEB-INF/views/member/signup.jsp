@@ -10,18 +10,36 @@
 <script>
 	// idno:: 자동생성합니다.
 	// table생성:: idno, passwd, passre, name, zip(char), adr1, adr2, ph1, ph2, ph3, em1, em2
-	// 하단부 약관동의 체크 확인 후 진행할 수 있게 해주세요.
-	// 미체크시 "약관에 동의해주세요." 메세지창 띄워주세요.
+	/* 비밀번호 일치 체크  */
+	function pwd_check()
+	{
+		pass1=document.getElementById("passwd").value;
+		pass2=document.getElementById("passre").value;
+		if(pass1 !== pass2)
+			{
+			alert("비밀번호가 일치하지 않습니다.");
+			document.getElementById("passre").focus();
+			return false;
+			
+			}
+		else
+			return true;
+			
+	}
+	
+	// 약관 동의 미체크시 "약관에 동의해주세요." 메세지창 띄우기
 	function rule_check(ck)  // 약관 동의 체크 _ 폰번호, 이메일 합쳐서 리턴
 	{
 		if((document.member.okay.value)!=checked)   /* 나중에 다시 확인 */
 			{
 			alert("약관에 동의해주세요.");
+			return false;
 			}
 		else
 			{
 			  ck.phone.value=ck.p1.value+"-"+ck.p2.value+"-"+ck.p3.value;
 			  ck.email.value=ck.email1.value+"@"+ck.email2.value;
+			  return true;
 			}
 	}
 	
@@ -99,21 +117,21 @@
     </tr>
     <tr>
         <td height="30" bgcolor="#FFFFFF" align="center" width="98">ID(회원번호)</td>
-        <td bgcolor="#FFFFFF" width="480"><input type="text" name="idno" style="border:1px solid #DBDBDB;" maxlength="8"> ID(회원번호)는 자동생성됩니다</td>
+        <td bgcolor="#FFFFFF" width="480"><input type="text" name="idno" style="border:1px solid #DBDBDB;" maxlength="8" readonly> ID(회원번호)는 자동생성됩니다</td>
     </tr>
     <tr>
         <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
     </tr>
     <tr>
         <td height="30" bgcolor="#FBF3F3" align="center" width="98">비밀번호</td>
-        <td bgcolor="#FBF3F3" width="480"><input type="password" name="passwd" style="border:1px solid #DBDBDB;"></td>
+        <td bgcolor="#FBF3F3" width="480"><input type="password" name="passwd" id="passwd" style="border:1px solid #DBDBDB;"></td>
     </tr>
     <tr>
         <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
     </tr>
     <tr>
         <td height="30" bgcolor="#FBF3F3" align="center" width="98">비밀번호확인</td>
-        <td bgcolor="#FBF3F3" width="480"><input type="password" name="passre" style="border:1px solid #DBDBDB;"></td>
+        <td bgcolor="#FBF3F3" width="480"><input type="password" name="passre" id="passre" style="border:1px solid #DBDBDB;" onblur=pwd_check()></td>
     </tr>
     <tr>
         <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
@@ -130,7 +148,7 @@
                     <td height="15" align="center" width="97">우편번호</td>
                     <td height="30" width="248">
 
-<input type="text" name="zip" id="zip" style="border:1px solid #DBDBDB;" placeholder="우편번호 찾기">
+<input type="text" name="zip" id="zip" style="border:1px solid #DBDBDB;" placeholder="우편번호 찾기" readonly>
 
                     </td>
                         <td width="141" height="30">
@@ -143,7 +161,7 @@
                     <td height="30" align="center" bgcolor="#FBF3F3" width="97">주소</td>
                     <td bgcolor="#FBF3F3" colspan="2" width="389" >
 
-<input type="text" name="adr1" id="adr1" style="border:1px solid #DBDBDB;" placeholder="주소">
+<input type="text" name="adr1" id="adr1" style="border:1px solid #DBDBDB;" placeholder="주소" readonly>
 
                     </td>
                 </tr>
