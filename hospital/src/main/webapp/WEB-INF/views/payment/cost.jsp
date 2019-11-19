@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+</head>
 <body>
 <p>&nbsp;</p>
 <table width="600" cellpadding="0" cellspacing="0" height="323">
