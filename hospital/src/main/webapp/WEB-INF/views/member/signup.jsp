@@ -5,12 +5,14 @@
   Calendar today = Calendar.getInstance();
 
   String year = Integer.toString(today.get(Calendar.YEAR));
+  String year1 = year.substring(2,4);
   String month = Integer.toString(today.get(Calendar.MONTH)+1);
   String date = Integer.toString(today.get(Calendar.DATE));
   
-  String idno1 = (year+month+date);
+  String idno1 = (year1+month+date);
   
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +22,7 @@
 
 <script>
 	// idno:: 자동생성합니다.
-	// table생성:: idno, passwd, passre, name, zip(char), adr1, adr2, ph1, ph2, ph3, em1, em2
+	// table생성:: id, idno, passwd, passre, name, zip(char), adr1, adr2, ph1, em1
 	/* 비밀번호 일치 체크  */
 	function pwd_check()
 	{
@@ -31,27 +33,71 @@
 			alert("비밀번호가 일치하지 않습니다.");
 			document.getElementById("passre").focus();
 			return false;
-			
+		
 			}
 		else
+			{
 			return true;
+			}
 			
 	}
 	
-	// 약관 동의 미체크시 "약관에 동의해주세요." 메세지창 띄우기
-	function rule_check(ck)  // 약관 동의 체크 _ idno 추가해서 리턴
-	{
-		if((document.member.okay.value)!=checked)   /* 나중에 다시 확인 */
-			{
-			alert("약관에 동의해주세요.");
-			return false;
-			}
-		else
-			{
-			  idno=idno1+"";
-			  return true;
-			}
-	}
+	/*  미작성한 내용 있는지 체크하고 알림 띄우기 */
+	function check(form)
+ {
+	if(form.passwd.value=="")
+		{
+		alert("비밀번호를 입력하세요.");
+		form.passwd.focus();
+		return false;
+		}
+	else if(form.passre.value=="")
+		{
+		alert("비밀번호가 일치하지 않습니다.");
+		form.passre.focus();
+		return false;
+		}
+	else if(form.name.value=="")
+		{
+		alert("이름을 입력하세요.");
+		form.name.focus();
+		return false;
+		}
+	else if(form.adr1.value=="")
+		{
+		alert("주소를 입력하세요.");
+		form.adr1.focus();
+		return false;
+		}
+	else if(form.adr2.value=="")
+		{
+		alert("상세주소를 입력하세요.");
+		form.adr2.focus();
+		return false;
+		}
+	else if(form.phone.value=="")
+		{
+		alert("전화번호를 입력하세요.");
+		form.phone.focus();
+		return false;
+		}
+	else if(form.email.value=="")
+		{
+		alert("이메일 주소를 입력하세요.");
+		form.email.focus();
+		return false;
+		}
+	else if((document.getElementByName("okay").value) !== checked)
+		{
+		alert("약관에 동의해주세요.");
+		return false;
+		}
+	else  
+		{ 
+		document.getElementByName("idno").value ="${memberdto.idno}"+"${memberdto.id}";
+		return true;
+		}
+ }
 	
 
 	/* daum 도로명주소검색 API  */
@@ -103,10 +149,9 @@
 </head>
 <body>
 
-<form name="member" action="signup_com.jsp" onsubmit="return rule_check(this)">
+<form name="member" action="signup_com" onsubmit="return rule_check(this)">
 <!-- hidden 전부 여기에 몰빵 -->
-<input type=hidden name=phone>
-<input type=hidden name=email>
+<input type=hidden name=idno value=<%=idno1 %>>
  
 <table width="590" cellspacing="0" cellpadding="3" align="center" border="0" style="font-family:돋움,Dotum,sans-serif;">
     <col width="120"><col width="380">

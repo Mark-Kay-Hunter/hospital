@@ -10,16 +10,13 @@ public class MemberDto
 	private String zip;
 	private String adr1;
 	private String adr2;
-	private String ph1;
-	private String ph2;
-	private String ph3;
-	private String em1;
-	private String em2;
+	private String ph;
+	private String em;
 	
 	public MemberDto() {}
 
 	public MemberDto(String id, String idno, String passwd, String passre, String name, String zip, String adr1,
-			String adr2, String ph1, String ph2, String ph3, String em1, String em2) {
+			String adr2, String ph, String em) {
 		super();
 		this.id = id;
 		this.idno = idno;
@@ -29,11 +26,8 @@ public class MemberDto
 		this.zip = zip;
 		this.adr1 = adr1;
 		this.adr2 = adr2;
-		this.ph1 = ph1;
-		this.ph2 = ph2;
-		this.ph3 = ph3;
-		this.em1 = em1;
-		this.em2 = em2;
+		this.ph = ph;
+		this.em = em;
 	}
 
 	public String getId() {
@@ -100,45 +94,22 @@ public class MemberDto
 		this.adr2 = adr2;
 	}
 
-	public String getPh1() {
-		return ph1;
+	public String getPh() {
+		return ph;
 	}
 
-	public void setPh1(String ph1) {
-		this.ph1 = ph1;
+	public void setPh(String ph) {
+		this.ph = ph;
 	}
 
-	public String getPh2() {
-		return ph2;
+	public String getEm() {
+		return em;
 	}
 
-	public void setPh2(String ph2) {
-		this.ph2 = ph2;
+	public void setEm(String em) {
+		this.em = em;
 	}
 
-	public String getPh3() {
-		return ph3;
-	}
-
-	public void setPh3(String ph3) {
-		this.ph3 = ph3;
-	}
-
-	public String getEm1() {
-		return em1;
-	}
-
-	public void setEm1(String em1) {
-		this.em1 = em1;
-	}
-
-	public String getEm2() {
-		return em2;
-	}
-
-	public void setEm2(String em2) {
-		this.em2 = em2;
-	}
 
 
 
