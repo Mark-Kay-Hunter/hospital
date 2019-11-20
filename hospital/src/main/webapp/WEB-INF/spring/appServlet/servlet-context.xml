@@ -23,6 +23,22 @@
 	
 	<context:component-scan base-package="kr.co.hospital" />
 	
+	    <!-- 	mybatis를 위한 소스 -->
+	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property name="url" value="jdbc:mysql://localhost:3307/spring" /> <!-- DB 이름 -->  
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value="1234" />
+	</beans:bean>
 	
+	<beans:bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	   <beans:property name="dataSource" ref="dataSource"></beans:property>
+	   <beans:property name="mapperLocations" value="classpath:kr/co/hospital/dao/mapper/*.xml"></beans:property>
+	                                                                                   <!-- 패키지이름: 중요=> 바뀐다 -->
+	                                                                                   <!-- mapper패키지(디렉토리)는 dao하위에 만드는게 낫다 -->
+	</beans:bean>
 	
+	<beans:bean name="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	    <beans:constructor-arg ref="sqlSessionFactory"></beans:constructor-arg>
+	</beans:bean>
 </beans:beans>
