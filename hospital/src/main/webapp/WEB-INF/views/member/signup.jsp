@@ -214,7 +214,10 @@
                 </tr>
                 <tr>
                     <td height="15" align="center" bgcolor="#FBF3F3" width="97">전화번호</td>
-                    <td bgcolor="#FBF3F3" colspan="2" width="389"><input type="text" name="ph" style="border:1px solid #DBDBDB;"></td>
+                    <td bgcolor="#FBF3F3" colspan="2" width="389">
+                    
+                    <input type="text" name="ph" style="border:1px solid #DBDBDB;" size="12"> ('-' 없이 입력해주세요.)
+                    </td>
                 </tr>
                 <tr>
                     <td height="15" align="center" bgcolor="#FBF3F3" width="97">이메일</td>
