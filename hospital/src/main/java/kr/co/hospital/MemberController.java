@@ -1,13 +1,16 @@
 package kr.co.hospital;
 
 
+import java.net.URLEncoder;
 import java.sql.SQLException;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.hospital.command.MemberCommand;
+import kr.co.hospital.command.MemberCommand_signup;
 import kr.co.hospital.dto.MemberDto;
 
 /**
@@ -30,22 +33,28 @@ public class MemberController {
 		return "/member/signup";
 	}
 	
-	@RequestMapping("/signup_ok")
-	public String write_ok(MemberDto memberdto) throws SQLException
+	@RequestMapping("/member/signup_ok")
+	public String signup_ok(MemberDto memberdto,Model model) throws SQLException
 	{            // 폼입력값 => dto에 저장
 		//dto에 있는 내용을 DB에 넣기
 		
 		// 실행할 Command 호출
-		MemberCommand wc=new MemberCommand();
-		wc.execute(memberdto);
-		return "redirect:list";  //response.sendRedirect("list.jsp");
+		MemberCommand_signup so=new MemberCommand_signup();
+		String idno=so.execute(memberdto);
+		//model.addAttribute("memberdto",memberdto);
+		String name=URLEncoder.encode(memberdto.getName());
+		return "redirect:/member/signup_com?idno="+idno+"&name="+name;
 	}
 
 	
 	@RequestMapping("/member/signup_com")
-	public String signup_com(MemberDto memberdto, Model model)
+	public String signup_com(HttpServletRequest request, Model model, MemberDto memberdto)
 	{
-		model.addAttribute("memberdto", memberdto);
+		//model.addAttribute("memberdto", memberdto);
+		String idno=request.getParameter("idno");
+		String name=request.getParameter("name");
+		model.addAttribute("idno", idno);
+		model.addAttribute("name", name);
 		return "/member/signup_com";
 	}
 	

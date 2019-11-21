@@ -5,12 +5,13 @@ import java.sql.SQLException;
 import kr.co.hospital.dao.MemberDao;
 import kr.co.hospital.dto.MemberDto;
 
-public class MemberCommand 
+public class MemberCommand_signup 
 {
-	public void execute(MemberDto memberdto) throws SQLException
+	public String execute(MemberDto memberdto) throws SQLException
 	{
 		MemberDao dao=new MemberDao();
-		dao.signup(memberdto);
+		String idno=dao.signup(memberdto);
+		return idno;
 	}
 
 }

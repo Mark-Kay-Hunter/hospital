@@ -1,17 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import = "java.util.*" %>
-<%
-  Calendar today = Calendar.getInstance();
 
-  String year = Integer.toString(today.get(Calendar.YEAR));
-  String year1 = year.substring(2,4);
-  String month = Integer.toString(today.get(Calendar.MONTH)+1);
-  String date = Integer.toString(today.get(Calendar.DATE));
-  
-  String idno1 = (year1+month+date);
-  
-%>
 
 <!DOCTYPE html>
 <html>
@@ -43,7 +33,7 @@
 	}
 	
 	/*  미작성한 내용 있는지 체크하고 알림 띄우기 */
-	function check(form)
+	function rule_check(form)
  {
 	if(form.passwd.value=="")
 		{
@@ -94,7 +84,6 @@
 		}
 	else  
 		{ 
-		document.getElementByName("idno").value ="${memberdto.idno}"+"${memberdto.id}";
 		return true;
 		}
  }
@@ -149,9 +138,8 @@
 </head>
 <body>
 
-<form name="member" action="signup_com" onsubmit="return rule_check(this)">
+<form name="member" action="signup_ok" onsubmit="return rule_check(this)">
 <!-- hidden 전부 여기에 몰빵 -->
-<input type=hidden name=idno value=<%=idno1 %>>
  
 <table width="590" cellspacing="0" cellpadding="3" align="center" border="0" style="font-family:돋움,Dotum,sans-serif;">
     <col width="120"><col width="380">
@@ -175,21 +163,21 @@
         <td bgcolor="#FFFFFF" width="480"><input type="text" name="idno" id="idno" style="border:1px solid #DBDBDB;" maxlength="8" readonly> ID(회원번호)는 자동생성됩니다</td>
     </tr>
     <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
+        <td height="1" colspan="2" bgcolor="#FF7A96"  width="584"></td>
     </tr>
     <tr>
         <td height="30" bgcolor="#FBF3F3" align="center" width="98">비밀번호</td>
         <td bgcolor="#FBF3F3" width="480"><input type="password" name="passwd" id="passwd" style="border:1px solid #DBDBDB;"></td>
     </tr>
     <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
+        <td height="1" colspan="2" bgcolor="#FF7A96" width="584"></td>
     </tr>
     <tr>
         <td height="30" bgcolor="#FBF3F3" align="center" width="98">비밀번호확인</td>
         <td bgcolor="#FBF3F3" width="480"><input type="password" name="passre" id="passre" style="border:1px solid #DBDBDB;" onblur=pwd_check()></td>
     </tr>
     <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
+        <td height="1" colspan="2" bgcolor="#FF7A96"  width="584"></td>
     </tr>
     <tr>
         <td height="30" bgcolor="#FFFFFF" align="center" width="98">회원정보</td>
@@ -226,11 +214,11 @@
                 </tr>
                 <tr>
                     <td height="15" align="center" bgcolor="#FBF3F3" width="97">전화번호</td>
-                    <td bgcolor="#FBF3F3" colspan="2" width="389"><input type="text" name="phone" style="border:1px solid #DBDBDB;"></td>
+                    <td bgcolor="#FBF3F3" colspan="2" width="389"><input type="text" name="ph" style="border:1px solid #DBDBDB;"></td>
                 </tr>
                 <tr>
                     <td height="15" align="center" bgcolor="#FBF3F3" width="97">이메일</td>
-                    <td height="30" colspan="2" bgcolor="#FBF3F3" width="389"><input type="text" name="email" style="border:1px solid #DBDBDB;"></td>
+                    <td height="30" colspan="2" bgcolor="#FBF3F3" width="389"><input type="text" name="em" style="border:1px solid #DBDBDB;"></td>
                 </tr>
             </table>
         </td>
