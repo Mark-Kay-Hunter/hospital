@@ -37,7 +37,6 @@ public class MemberDao
 
 	public String signup(MemberDto memberdto) throws SQLException
 	{
-		/* memberdto.getIdno()="idno"+"memberdto.getId"; */
 		String sql="select right(idno,2) as num from member where idno like '"+idno1+"%'"+" order by id desc";
 		PreparedStatement pstmt=conn.prepareStatement(sql);
 		ResultSet rs=pstmt.executeQuery();

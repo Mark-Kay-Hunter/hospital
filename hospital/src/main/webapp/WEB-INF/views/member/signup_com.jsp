@@ -7,11 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
-    ${name } 님의 회원가입이 완료되었습니다. <p>
-    ${name } 님의 아이디는 ${idno} 입니다.<p>
-    <input type=button value="메인으로"><p>
-    <input type=button value="진료예약">
-    
+    <div id="layer2" style="width:260px; height:45px; position:absolute; left:183px; top:282px; z-index:1;">
+    <p> ${idno}</p>
+</div>
+<p><img src="../image/welcome.png" width="700" height="380" border="0"></p>
+<div id="layer1" style="width:200px; height:45px; position:absolute; left:41px; top:220px; z-index:1;">
+    <p>${name }</p>
+ 
+</div>
 </body>
 </html>

@@ -24,7 +24,6 @@
 </head>
 
 <body>
-
 <div id=upper>상단배너</div>
 <div id=link>로그인/회원가입</div>
 <div id=menu>좌측메뉴</div>
