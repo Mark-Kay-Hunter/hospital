@@ -29,7 +29,7 @@
 <div id=link>로그인/회원가입</div>
 <div id=menu>좌측메뉴</div>
 <div id=main>실제 시현 페이지</div>
-<div id=footer><jsp:include page="" flush="false" /></div>
+<div id=footer>
 
 <div id=temp>
 

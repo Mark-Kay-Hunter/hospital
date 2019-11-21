@@ -1,6 +1,6 @@
 package kr.co.hospital.dto;
 
-<<<<<<< HEAD
+
 public class MemberDto 
 {
 	private String id;
@@ -113,8 +113,6 @@ public class MemberDto
 
 
 
-=======
-public class MemberDto {
->>>>>>> refs/remotes/origin/master
+
 
 }

@@ -1,6 +1,6 @@
 package kr.co.hospital.dao;
 
-<<<<<<< HEAD
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -68,9 +68,4 @@ public class MemberDao
 		return idno1;
 	}
 	
-	
-=======
-public class MemberDao {
-
->>>>>>> refs/remotes/origin/master
 }
