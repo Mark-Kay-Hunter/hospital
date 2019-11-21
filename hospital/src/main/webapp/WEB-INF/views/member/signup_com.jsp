@@ -11,7 +11,7 @@
     ${name } 님의 회원가입이 완료되었습니다. <p>
     ${name } 님의 아이디는 ${idno} 입니다.<p>
     <input type=button value="메인으로"><p>
-    <input type=button value="예약하기">
+    <input type=button value="진료예약">
     
 </body>
 </html>
