@@ -40,6 +40,7 @@
 <a href="/hospital/member/login">　[　멤버-로그인　]　</a>
 <a href="/hospital/member/signup">　[　멤버-회원가입　]　</a>
 <a href="/hospital/member/modufy">　[　게시판-정보수정　]　</a><p>
+<a href="/hospital/member/welcome">　[　완료　]　</a><p>
 
 <a href="/hospital/payment/cost">　[　결제-금액확인　]　</a>
 <a href="/hospital/payment/pay">　[　결제-실행　]　</a><p>

@@ -6,16 +6,36 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+
+
 </head>
 <body>
-
-<div id="layer2" style="width:260px; height:45px; position:absolute; left:183px; top:282px; z-index:1;">
-    <p><!-- ID DB 받아서 출력 --></p>
-</div>
-<p><img src="../image/welcome.png" width="700" height="380" border="0"></p>
-<div id="layer1" style="width:200px; height:45px; position:absolute; left:41px; top:220px; z-index:1;">
-    <p><!-- 이름 DB 받아서 출력 --></p>
-</div>
+        <table width="700" cellpadding="0" cellspacing="0" height="250">
+            <tr>
+        <td width="700" colspan="2">
+            <p align="center"><span style="font-size:20pt;"><b>감사합니다. 우리병원 회원가입이 완료되었습니다.</b>&nbsp;</span></p>
+        </td>
+            </tr>
+            <tr>
+                <td width="300">
+                    <p align="right"><span style="font-size:16pt;"><b>${name}</b></span><span style="font-size:20pt;"></span></p>
+                </td>
+                <td width="400"><span style="font-size:16pt;">　회원님의 회원번호(ID)는</span><span style="font-size:20pt;"></span></td>
+            </tr>
+            <tr>
+                <td width="300">
+                    <p align="right"><span style="font-size:16pt;"><b>${idno}</b></span><span style="font-size:20pt;"></span></p>
+                </td>
+                <td width="400"><span style="font-size:16pt;">　입니다.</span><span style="font-size:20pt;"></span></td>
+            </tr>
+            <tr>
+        <td width="700" colspan="2">
+            <p align="center"><span style="font-size:16pt;">회원번호는 홈페이지 로그인시 ID로 사용되며,<br>
+가입시 입력하신 이메일로 다시 한번 전송되었습니다.<br>
+</span><span style="font-size:20pt;"></span></p>
+        </td>
+            </tr>
+        </table>
 
 </body>
 </html>

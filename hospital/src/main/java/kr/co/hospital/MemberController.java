@@ -27,5 +27,11 @@ public class MemberController {
 	{
 		return "/member/modify";
 	}
+	
+	@RequestMapping("/member/welcome")
+	public String welcome()
+	{
+		return "/member/welcome";
+	}
 
 }
