@@ -5,15 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+	body { font-family: 'Jeju Gothic', serif; }
+</style>
 </head>
 <body>
 
 <form name="member" action="member.jsp">
  
-<table width="590" cellspacing="0" cellpadding="3" align="center" border="0" style="font-family:돋움,Dotum,sans-serif;">
+<table width="590" cellspacing="0" cellpadding="3" align="center" border="0"">
     <col width="120"><col width="380">
     <tr>
-        <td height="2" colspan="2" bgcolor="#FF7A96" width="584"></td>
+        <td height="2" colspan="2" bgcolor="#7AC2FF" width="584"></td>
     </tr>
     <tr>
         <td height="1" colspan="2" bgcolor="#FFFFFF" width="584"></td>
@@ -25,28 +29,28 @@
         <td height="1" colspan="2" bgcolor="#FFFFFF" width="584"></td>
     </tr>
     <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" width="584"></td>
+        <td height="1" colspan="2" bgcolor="#7AC2FF" width="584"></td>
     </tr>
     <tr>
         <td height="30" bgcolor="#FFFFFF" align="center" width="98">ID(회원번호)</td>
         <td bgcolor="#FFFFFF" width="480"><input type="text" name="idno" style="border:1px solid #DBDBDB;" maxlength="8"> ID(회원번호)는 자동생성됩니다</td>
     </tr>
     <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
+        <td height="1" colspan="2" bgcolor="#7AC2FF" background="jumsun.gif" width="584"></td>
     </tr>
     <tr>
         <td height="30" bgcolor="#FBF3F3" align="center" width="98">비밀번호</td>
         <td bgcolor="#FBF3F3" width="480"><input type="password" name="passwd" style="border:1px solid #DBDBDB;"></td>
     </tr>
     <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
+        <td height="1" colspan="2" bgcolor="#7AC2FF" background="jumsun.gif" width="584"></td>
     </tr>
     <tr>
         <td height="30" bgcolor="#FBF3F3" align="center" width="98">비밀번호확인</td>
         <td bgcolor="#FBF3F3" width="480"><input type="password" name="passre" style="border:1px solid #DBDBDB;"></td>
     </tr>
     <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
+        <td height="1" colspan="2" bgcolor="#7AC2FF" background="jumsun.gif" width="584"></td>
     </tr>
     <tr>
         <td height="30" bgcolor="#FFFFFF" align="center" width="98">회원정보</td>
@@ -94,7 +98,7 @@
         </td>
     </tr>
     <tr>
-        <td height="1" colspan="2" bgcolor="#FF7A96" background="jumsun.gif" width="584"></td>
+        <td height="1" colspan="2" bgcolor="#7AC2FF" background="jumsun.gif" width="584"></td>
     </tr>
     <tr>
         <td height="30" bgcolor="#FBF3F3" align="center" colspan="2" width="584">회원약관</td>

@@ -7,7 +7,11 @@
 <head>
 <title>[ Project ]</title>
 	<style>
-
+	
+	
+	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+	body { font-family: 'Jeju Gothic', serif; }
+	
 	#upper { width:auto; height:100px; background:#EDEDED; }
 	#link { width:auto; height:20px; background:#DCDCDC; }
 	#menu { width:auto; height:150px; background:#CBCBCB; }
@@ -18,7 +22,7 @@
 
 	<script>
 
-
+	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 
 	</script>
 </head>

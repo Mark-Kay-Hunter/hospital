@@ -6,11 +6,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-
+<style>
+	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+	body { font-family: 'Jeju Gothic', serif; }
+</style>
 
 </head>
 <body>
-        <table width="700" cellpadding="0" cellspacing="0" height="250">
+        <table width="700" cellpadding="0" cellspacing="0" height="300">
             <tr>
         <td width="700" colspan="2">
             <p align="center"><span style="font-size:20pt;"><b>감사합니다. 우리병원 회원가입이 완료되었습니다.</b>&nbsp;</span></p>
@@ -35,7 +38,17 @@
 </span><span style="font-size:20pt;"></span></p>
         </td>
             </tr>
+            <tr>
+        <td width="700" colspan="2">
+            <p align="center"><button style="color: #DEDEDE; background:#333333; font-size:1.2em; border-radius:0.5em; padding:5px 20px;" onclick="window.location.href='/hospital/member/login'">로그인하기</button>
+		<button style="color: #DEDEDE; background:#333333; font-size:1.2em; border-radius:0.5em; padding:5px 20px;" onclick="window.location.href='/hospital'">돌아가기</button></p>
+        </td>
+            </tr>
         </table>
+        <center>
+        
+		</center>
+
 
 </body>
 </html>
