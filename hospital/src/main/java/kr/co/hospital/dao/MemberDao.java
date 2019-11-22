@@ -67,4 +67,14 @@ public class MemberDao
 		return idno1;
 	}
 	
+	public String login(MemberDto memberdto) throws SQLException
+	{
+		String sql="select * from member where idno=?";
+		PreparedStatement pstmt=conn.prepareStatement(sql);
+		ResultSet rs=pstmt.executeQuery();
+		
+		String userid=rs.getString("idno");
+		return "userid";
+	}
+	
 }

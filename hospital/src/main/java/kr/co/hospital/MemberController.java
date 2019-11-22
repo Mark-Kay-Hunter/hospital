@@ -21,9 +21,19 @@ import kr.co.hospital.dto.MemberDto;
 public class MemberController {
 	
 	@RequestMapping(value="/member/login")
-	public String login()
+	public String login(MemberDto memberdto, Model model)
 	{
+		model.addAttribute("memberdto", memberdto);
 		return "/member/login";
+	}
+	
+	@RequestMapping("/member/login_ok")
+	public String member_ok(MemberDto memberdto, Model model) throws SQLException
+	{
+		MemberCommand_signup lg=new MemberCommand_signup();
+	    String idno=lg.login(memberdto);
+	    String passwd=memberdto.getPasswd();
+		return "redirect:../home?idno="+idno+"&passwd="+passwd;
 	}
 
 	@RequestMapping("/member/signup")
