@@ -8,12 +8,13 @@ public class BoardDto {
 	private String wcat;
 	private String wcont;
 	private String writeday;
+	private String read_num;
 	
 	public BoardDto() {
 		
 	}
-
-	public BoardDto(String id, String wtitle, String wname, String wpwd, String wcat, String wcont, String writeday) {
+	
+	public BoardDto(String id, String wtitle, String wname, String wpwd, String wcat, String wcont, String writeday, String read_num) {
 		super();
 		this.id = id;
 		this.wtitle = wtitle;
@@ -22,8 +23,9 @@ public class BoardDto {
 		this.wcat = wcat;
 		this.wcont = wcont;
 		this.writeday = writeday;
+		this.read_num = read_num;
 	}
-
+	
 	public String getId() {
 		return id;
 	}
@@ -80,4 +82,11 @@ public class BoardDto {
 		this.writeday = writeday;
 	}
 
+	public String getRead_num() {
+		return read_num;
+	}
+	
+	public void setRead_num(String read_num) {
+		this.read_num = read_num;
+	}
 }

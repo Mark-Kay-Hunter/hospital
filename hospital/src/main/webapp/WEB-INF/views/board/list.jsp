@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,6 @@
 <script>
 
 	//  리스트에 출력되는 정보 :: snum, wcat, wtitle, wday, rnum
-	// 
 
 </script>
 
@@ -30,95 +30,56 @@
         <td width="100" bgcolor="#CCCCCC">분류</td>
         <td width="400" bgcolor="#CCCCCC">제목</td>
         <td width="150" bgcolor="#CCCCCC">작성일</td>
-		<td width="50" bgcolor="#CCCCCC">조회수</td>
+		<td width="60" bgcolor="#CCCCCC">조회수</td>
     </tr>
     
-		<tr>
-        <td width="50">&nbsp;</td>
-        <td width="100">&nbsp;</td>
-        <td width="400">&nbsp;</td>
-        <td width="150">&nbsp;</td>
-        <td width="50">&nbsp;</td>
+    <c:set var="i" value="0"/>  <!--  i변수의 값은 0 -->
+    <!-- ArrayList<Dto> -->
+    <c:forEach items="${list}" var="boarddto"> <!-- for문과 동일한 기능 -->
+    <c:if test="${i%2 eq 0 }" >
+    <tr>
+    </c:if>
+    <c:if test="${i%2 eq 1 }" >
+    <tr bgcolor="#EEEEEE">
+    </c:if>	
+    <c:choose>
+      <c:when test="${boarddto.wcat eq 0}">
+        <c:set var="cat" value="[분류로검색]"/>
+      </c:when>
+      <c:when test="${boarddto.wcat eq 1}">
+        <c:set var="cat" value="[공지사항]"/>
+      </c:when>
+      <c:when test="${boarddto.wcat eq 2}">
+        <c:set var="cat" value="[건강정보]"/>
+      </c:when>
+      <c:when test="${boarddto.wcat eq 3}">
+        <c:set var="cat" value="[보도자료]"/>
+      </c:when>
+      <c:otherwise>
+        <c:set var="cat" value=""/>
+      </c:otherwise>
+    </c:choose>
+        <td width="50">&nbsp;</td><!-- content_num -->
+        <td width="100">${cat}</td><!-- category -->
+        <td width="400"><a href="content?id=${boarddto.id}">${boarddto.wtitle}</a></td><!-- title -->
+        <td width="150">${boarddto.writeday}</td><!-- writeday -->
+        <td width="60">${boarddto.read_num}</td><!-- read_num -->
     </tr>
-		
-		<tr>
-        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="100" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="400" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="150" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
-    </tr>
-		
-		<tr>
-        <td width="50">&nbsp;</td>
-        <td width="100">&nbsp;</td>
-        <td width="400">&nbsp;</td>
-        <td width="150">&nbsp;</td>
-        <td width="50">&nbsp;</td>
-    </tr>
-		
-		<tr>
-        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="100" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="400" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="150" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
-    </tr>
-		
-		<tr>
-        <td width="50">&nbsp;</td>
-        <td width="100">&nbsp;</td>
-        <td width="400">&nbsp;</td>
-        <td width="150">&nbsp;</td>
-        <td width="50">&nbsp;</td>
-    </tr>
-		
-		<tr>
-        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="100" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="400" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="150" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
-    </tr>
-		
-		<tr>
-        <td width="50">&nbsp;</td>
-        <td width="100">&nbsp;</td>
-        <td width="400">&nbsp;</td>
-        <td width="150">&nbsp;</td>
-        <td width="50">&nbsp;</td>
-    </tr>
-		
-		<tr>
-        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="100" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="400" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="150" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
-    </tr>
-		
-		<tr>
-        <td width="50">&nbsp;</td>
-        <td width="100">&nbsp;</td>
-        <td width="400">&nbsp;</td>
-        <td width="150">&nbsp;</td>
-        <td width="50">&nbsp;</td>
-    </tr>
-		
-		<tr>
-        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="100" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="400" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="150" bgcolor="#EEEEEE">&nbsp;</td>
-        <td width="50" bgcolor="#EEEEEE">&nbsp;</td>
-    </tr>
-		
-
+    <c:set var="i" value="${i+1}" />  <!--  i변수의 값을 1증가 -->
+    </c:forEach>
+    
+    <!-- client page -->
     <tr>
         <td width="650" colspan="5">[이전][다음]</td>
     </tr>
     
-		<tr>
+    <!-- admin page -->
+    <tr>
+        <td width="650" colspan="5">[이전][다음]</td>
+        <td><a href="write">글쓰기</a></td>
+    </tr>
+    
+	<tr>
         <td width="650" height="9" colspan="5">
 		<input type="text" name="search">
 		<select>
@@ -132,7 +93,5 @@
     </tr>
 
 </table>
-
 </body>
-
 </html>

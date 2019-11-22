@@ -26,7 +26,7 @@
 	    <!-- 	mybatis를 위한 소스 -->
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<beans:property name="url" value="jdbc:mysql://localhost:3307/spring" /> <!-- DB 이름 -->  
+		<beans:property name="url" value="jdbc:mysql://localhost:3307/hospital" /> <!-- DB 이름 -->  
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="1234" />
 	</beans:bean>

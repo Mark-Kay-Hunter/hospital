@@ -13,6 +13,7 @@
 <!-- 관리자 공지사항 부분
 - 관리자(admin)으로만 글작성 => session.getAttribute("userid").equals("admin"))
 - 글 작성후 list.jsp로 이동 => response.sendRedirect("list.jsp") -->
+<form method="post" action="write_ok">
 <table width="600" cellpadding="0" cellspacing="0">
     <tr>
         <td width="600" colspan="6">글작성하기</td>
@@ -30,12 +31,12 @@
 		</td>
         <td width="100" height="22">비밀번호</td>
         <td width="100" height="22">
-		<input type="password" name="wpass" size="12">
+		<input type="password" name="wpwd" size="12">
 		</td>
         <td width="100" height="22">분류</td>
         <td width="100" height="22">
 		
-		<select>
+		<select name="wcat">
 			<option value=0>[선택하세요]</option>
 			<option value=1>[공지사항]</option>
 			<option value=2>[건강정보]</option>
@@ -56,7 +57,6 @@
 		</td>
     </tr>
 </table>
-<p>&nbsp;</p>
+</form>
 </body>
-
 </html>

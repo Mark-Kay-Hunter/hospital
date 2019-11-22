@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mboard.dao.BoardDao">
+<mapper namespace="kr.co.hospital.dao.BoardDao">
 	<insert id="write">
 		INSERT INTO BOARD(WTITLE,WNAME,WPWD,WCAT,WCONT,WRITEDAY) VALUES(#{param1},#{param2},#{param3},#{param4},#{param5},now())
 	</insert>
+	
+	<select id="list" resultType="kr.co.hospital.dto.BoardDto">
+        SELECT * FROM BOARD ORDER BY ID DESC
+    </select>
+    
+    <select id="content" resultType="kr.co.hospital.dto.BoardDto">
+        SELECT * FROM BOARD WHERE ID=#{param1}
+    </select>
+    
+    <delete id="delete">
+        DELETE FROM BOARD WHERE ID=#{param1}
+    </delete>
+    
+    <select id="update" resultType="kr.co.hospital.dto.BoardDto">
+        SELECT * FROM BOARD WHERE ID=#{param1}
+    </select>
+    
+    <update id="update_ok">
+        UPDATE BOARD SET WTITLE=#{param1}, WNAME=#{param2}, WPWD=#{param3}, WCAT=#{param4}, WCONT=#{param5} WHERE ID={param6} 
+    </update>
 </mapper>
