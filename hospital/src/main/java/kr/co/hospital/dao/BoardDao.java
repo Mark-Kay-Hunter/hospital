@@ -10,6 +10,8 @@ public interface BoardDao {
 	
 	public BoardDto content(String id);
 	
+	public void read_num(String id);
+	
 	public void delete(String id);
 	
 	public BoardDto update(String id);

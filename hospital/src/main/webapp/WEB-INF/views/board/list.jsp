@@ -34,8 +34,9 @@
     </tr>
     
     <c:set var="i" value="0"/>  <!--  i변수의 값은 0 -->
+    <c:set var="len" value="${list.size()}"/>
     <!-- ArrayList<Dto> -->
-    <c:forEach items="${list}" var="boarddto"> <!-- for문과 동일한 기능 -->
+    <c:forEach items="${list}" var="boarddto" varStatus="status"> <!-- for문과 동일한 기능 -->
     <c:if test="${i%2 eq 0 }" >
     <tr>
     </c:if>
@@ -59,13 +60,14 @@
         <c:set var="cat" value=""/>
       </c:otherwise>
     </c:choose>
-        <td width="50">&nbsp;</td><!-- content_num -->
+        <td width="50">${len}</td><!-- content_num -->
         <td width="100">${cat}</td><!-- category -->
-        <td width="400"><a href="content?id=${boarddto.id}">${boarddto.wtitle}</a></td><!-- title -->
+        <td width="400"><a href="read_num?id=${boarddto.id}">${boarddto.wtitle}</a></td><!-- title -->
         <td width="150">${boarddto.writeday}</td><!-- writeday -->
         <td width="60">${boarddto.read_num}</td><!-- read_num -->
     </tr>
     <c:set var="i" value="${i+1}" />  <!--  i변수의 값을 1증가 -->
+    <c:set var="len" value="${len-1}"/>
     </c:forEach>
     
     <!-- client page -->

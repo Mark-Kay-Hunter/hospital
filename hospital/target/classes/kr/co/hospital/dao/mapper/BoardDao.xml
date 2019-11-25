@@ -13,6 +13,10 @@
         SELECT * FROM BOARD WHERE ID=#{param1}
     </select>
     
+    <update id="read_num">
+        UPDATE BOARD SET READ_NUM = READ_NUM + 1 WHERE ID=#{param1}
+    </update>
+    
     <delete id="delete">
         DELETE FROM BOARD WHERE ID=#{param1}
     </delete>

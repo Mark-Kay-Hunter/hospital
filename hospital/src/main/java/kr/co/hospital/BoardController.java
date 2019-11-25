@@ -56,12 +56,20 @@ public class BoardController {
 		return "/board/content";
 	}
 	
+	@RequestMapping("/board/read_num")
+	public String read_num(HttpServletRequest request) 
+	{
+		BoardDao boarddao = sqlSession.getMapper(BoardDao.class);
+		boarddao.read_num(request.getParameter("id"));
+		return "redirect:/board/content";
+	}
+	
 	@RequestMapping("/board/delete")
 	public String delete(HttpServletRequest request) 
 	{
 		BoardDao boarddao = sqlSession.getMapper(BoardDao.class);
 		boarddao.delete(request.getParameter("id"));
-		return "redirect:/list";
+		return "redirect:/board/list";
 	}
 	
 	@RequestMapping("/board/update")
