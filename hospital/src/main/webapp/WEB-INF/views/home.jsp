@@ -10,30 +10,85 @@
 	
 	
 	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
-	body { font-family: 'Jeju Gothic', serif; }
+	body { font-family: 'Jeju Gothic', serif; align:center; }
+		
+	#upper { width:auto; height:50px; }
+	#link { width:auto; height:15px; }
+	#menu { width:auto; height:70px; }
+	#main { width:auto; height:600px; }
+	#footer { width:auto; height:100px; }
 	
-	#upper { width:auto; height:100px; background:#EDEDED; }
-	#link { width:auto; height:20px; background:#DCDCDC; }
-	#menu { width:auto; height:150px; background:#CBCBCB; }
-	#main { width:auto; height:500px; background:#BABABA; }
-	#footer { width:auto; height:100px; background:#A9A9A9; }
+	dl dd { display:inline-block; }
 
 	</style>
 
-	<script>
-
-	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
-
-	</script>
 </head>
 
 <body>
 
-<div id=upper>상단배너</div>
-<div id=link>로그인/회원가입</div>
-<div id=menu>좌측메뉴</div>
-<div id=main>실제 시현 페이지</div>
-<div id=footer><jsp:include page="" flush="false" /></div>
+	<div id="link">
+		<img src="image/hosci.png"><img src="image/hosci.gif">
+		<nav id="nav">
+			<dl>
+				<dd><a href="home.jsp">HOME</a></dd>
+				<dd><a href="member/login.jsp">LOGIN</a></dd>
+				<dd><a href="member/signup.jsp">SIGNUP</a></dd>
+				<dd><a href="board/list.jsp">BOARD</a></dd>
+			</dl>
+		</nav>
+	</div>
+	
+	
+	<div id="upper">
+	
+	</div>
+	
+	
+	<div id="menu">
+	
+	<nav id="nav2">
+			<dl>
+				<dd><a href="home.jsp">공지사항</a></dd>
+				<dd><a href="member/login.jsp">예약하기</a></dd>
+				<dd><a href="member/signup.jsp">일정확인</a></dd>
+				<dd><a href="board/list.jsp">선결제</a></dd>
+			</dl>
+		</nav>
+	
+	</div>
+	
+	
+	<div id="main">
+	
+		<iframe width=1200 height=600 frameborder=0 align=center src="/hospital/main/main"></iframe>
+	
+	</div>
+	
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+			<div class="col-md-4 col-sm-12">
+				<p>Copyright &copy; 2019 MK+JY+SG of MRHI <br> 
+				All Rights Reserved.</p>
+			</div>
+
+		<div class="col-md-4 col-sm-12">
+			<ul class="social-icons">
+				<li><a href="#">MK</a></li>
+				<li><a href="#">JY</a></li>
+				<li><a href="#">SG</a></li>
+			</ul>
+		</div>
+
+		<div class="col-md-2 col-md-offset-2 col-sm-12">
+		<div class="back-to-top">
+			<a href="#top"><i class="fa fa-angle-up"></i>back to top</a>
+		</div>
+		</div>
+			</div>
+		</div>
+	</div>
 
 <div id=temp>
 

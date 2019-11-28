@@ -13,5 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 
 public class MainController {
+	
+	@RequestMapping(value="/main/main")
+	public String main()
+	{
+		return "/main/main";
+	}
 
 }
