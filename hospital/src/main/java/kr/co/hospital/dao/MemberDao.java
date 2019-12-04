@@ -7,12 +7,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.List;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+
 
 import kr.co.hospital.dto.MemberDto;
 
 
+
+
 public class MemberDao 
 {
+	
+	private JdbcTemplate template;
+	
+	
 	  Calendar today = Calendar.getInstance();
 
 	  String year = Integer.toString(today.get(Calendar.YEAR));
@@ -20,18 +32,30 @@ public class MemberDao
 	  String month = Integer.toString(today.get(Calendar.MONTH)+1);
 	  String date = Integer.toString(today.get(Calendar.DATE));
 	  
+	  
+	  
 	  String idno1 = (year1+month+date);
 
 	
 	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
 
 	
-	public MemberDao() throws SQLException
+	public MemberDao()
 	{
-		String aa="jdbc:mysql://localhost:3307/hospital?useSSL=false";
-		String bb="root";
-		String cc="1234";
-		conn = DriverManager.getConnection(aa,bb,cc);
+		try {
+			String aa="jdbc:mysql://localhost:3307/hospital?useSSL=false";
+			String bb="root";
+			String cc="1234";
+			conn = DriverManager.getConnection(aa,bb,cc);
+			
+		}
+		
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -67,14 +91,31 @@ public class MemberDao
 		return idno1;
 	}
 	
-	public String login(MemberDto memberdto) throws SQLException
+	public MemberDto login(final MemberDto memberdto)
 	{
-		String sql="select * from member where idno=?";
-		PreparedStatement pstmt=conn.prepareStatement(sql);
-		ResultSet rs=pstmt.executeQuery();
+		List<MemberDto> members = null; 
 		
-		String userid=rs.getString("idno");
-		return "userid";
+		String sql="select * from member where idno = ? and passwd = ?";
+		
+		members = template.query(sql, new Object[]{memberdto.getIdno(), memberdto.getPasswd()}, new RowMapper<MemberDto>() {
+
+			@Override
+			public MemberDto mapRow(ResultSet rs, int rowNum) throws SQLException {
+				MemberDto mem = new MemberDto();
+				mem.setIdno(rs.getString("Idno"));
+				mem.setPasswd(rs.getString("Passwd"));
+				return mem;
+			}
+			
+		});
+		
+		if(members.isEmpty())
+			return null;
+		
+		return members.get(0);
+		
 	}
+
+
 	
 }

@@ -7,29 +7,12 @@
 <title>Insert title here</title>
 
 <script>
-function login_check(pwdc)
-{
-	if(${userid} == document.getElementByName("id"))
-		{
-	   if(${passwd} == document.getElementByName("passwd"))
-		   return true;
-	   else
-		   {
-		   alert("ID와 비밀번호를 확인해주세요.");
-	       return false;
-		   }
-		}
-	else
-		{
-		alert("ID와 비밀번호를 확인해주세요.");
-		return false;
-		}
-	}
+
 </script>
 </head>
 <body>
 
-<form name=login action=login_ok onsubmit="return login_check(this)">
+<form method=post name=login action="login_ok.jsp" >
 <table width="560" height="252" cellpadding="0" cellspacing="0">
     
 	<tr>
@@ -42,14 +25,14 @@ function login_check(pwdc)
         <td width="100">
             <p align="right">ID[회원번호]</p>
         </td>
-        <td width="460" colspan="2"><input type="text" size="40" name="id" placeholder="8자리의 숫자를 입력해주세요" maxlength="8"></td>
+        <td width="460" colspan="2"><input type="text" size="40" name="idno" placeholder="8자리의 숫자를 입력해주세요" maxlength="8"></td>
     </tr>
 	
     <tr>
         <td width="100">
             <p align="right">비밀번호</p>
         </td>
-        <td width="460" colspan="2"><input type="password" size="40" name="passw"></td>
+        <td width="460" colspan="2"><input type="password" size="40" name="passwd"></td>
     </tr>
 <!-- 	
     <tr>
@@ -61,10 +44,10 @@ function login_check(pwdc)
 	 -->
     <tr>
         <td width="280" height="60" colspan="2">
-            <p align="center"> <input type="button" value="로그인"> </p>
+            <p align="center"> <input type="submit" value="로그인"> </p>
         </td>
         <td width="280" height="60">
-            <p align="center"> <input type="submit" value="회원가입"> </p>
+            <p align="center"> <input type="button" value="회원가입"> </p>
         </td>
     </tr>
 	

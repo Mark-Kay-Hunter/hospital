@@ -23,6 +23,22 @@
 	
 	<context:component-scan base-package="kr.co.hospital" />
 	
-	
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/modifyForm"/>
+			<mapping path="/member/removeForm"/>
+			<!-- 
+			<mapping path="/member/**"/>
+			<exclude-mapping path="/member/joinForm"/>
+			<exclude-mapping path="/member/join"/>
+			<exclude-mapping path="/member/loginForm"/>
+			<exclude-mapping path="/member/login"/>
+			<exclude-mapping path="/member/logout"/>
+			<exclude-mapping path="/member/modify"/>
+			<exclude-mapping path="/member/remove"/>
+			-->
+			<beans:bean class="kr.co.hospital.member.MemberLoginInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>

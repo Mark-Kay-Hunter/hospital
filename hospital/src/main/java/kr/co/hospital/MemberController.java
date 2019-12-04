@@ -5,51 +5,67 @@ import java.net.URLEncoder;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.hospital.command.MemberCommand_signup;
+import kr.co.hospital.command.MemberCommand;
 import kr.co.hospital.dto.MemberDto;
+import kr.co.hospital.member.MemberService;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping("/member")
+
+
 
 public class MemberController {
 	
-	@RequestMapping(value="/member/login")
-	public String login(MemberDto memberdto, Model model)
+	@Autowired
+	MemberService service;
+	
+	@RequestMapping(value="/login")
+	public String login(MemberDto memberdto)
 	{
-		model.addAttribute("memberdto", memberdto);
 		return "/member/login";
 	}
 	
-	@RequestMapping("/member/login_ok")
-	public String member_ok(MemberDto memberdto, Model model) throws SQLException
+	@RequestMapping("/login_ok")
+	public String member_ok(MemberDto memberdto,  HttpSession session) 
 	{
-		MemberCommand_signup lg=new MemberCommand_signup();
-	    String idno=lg.login(memberdto);
-	    String passwd=memberdto.getPasswd();
-		return "redirect:../home?idno="+idno+"&passwd="+passwd;
+		MemberDto dto = service.memberSearch(memberdto);
+		if(dto == null)
+			return "/member/login";
+		
+		session.setAttribute("memberdto", dto);
+		/*
+		 * MemberCommand lg=new MemberCommand(); String idno=lg.login(memberdto); String
+		 * passwd=memberdto.getPasswd();
+		 */
+		/* return "redirect:../home?idno="+idno+"&passwd="+passwd; */
+		
+		return "/member/login_ok";
 	}
 
-	@RequestMapping("/member/signup")
+	@RequestMapping("/signup")
 	public String signup(MemberDto memberdto, Model model)
 	{
 		model.addAttribute("memberdto", memberdto);
 		return "/member/signup";
 	}
 	
-	@RequestMapping("/member/signup_ok")
+	@RequestMapping("/signup_ok")
 	public String signup_ok(MemberDto memberdto,Model model) throws SQLException
 	{            // 폼입력값 => dto에 저장
 		//dto에 있는 내용을 DB에 넣기
 		
 		// 실행할 Command 호출
-		MemberCommand_signup so=new MemberCommand_signup();
+		MemberCommand so=new MemberCommand();
 		String idno=so.execute(memberdto);
 		//model.addAttribute("memberdto",memberdto);
 		String name=URLEncoder.encode(memberdto.getName());
@@ -57,7 +73,7 @@ public class MemberController {
 	}
 
 	
-	@RequestMapping("/member/signup_com")
+	@RequestMapping("/signup_com")
 	public String signup_com(HttpServletRequest request, Model model, MemberDto memberdto)
 	{
 		//model.addAttribute("memberdto", memberdto);
@@ -68,7 +84,7 @@ public class MemberController {
 		return "/member/signup_com";
 	}
 	
-	@RequestMapping("/member/modify")
+	@RequestMapping("/modify")
 	public String modify()
 	{
 		return "/member/modify";
