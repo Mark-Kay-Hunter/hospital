@@ -5,20 +5,18 @@ import java.sql.SQLException;
 import kr.co.hospital.dao.MemberDao;
 import kr.co.hospital.dto.MemberDto;
 
-public class MemberCommand 
-{
-	public String execute(MemberDto memberdto) throws SQLException
-	{
-		MemberDao dao=new MemberDao();
-		String idno=dao.signup(memberdto);
+public class MemberCommand {
+	public String execute(MemberDto memberdto) throws SQLException {
+		MemberDao dao = new MemberDao();
+		String idno = dao.signup(memberdto);
 		return idno;
 	}
-	
-	public String login(MemberDto memberdto) throws SQLException
-	{
-		MemberDao dao=new MemberDao();
-		String userid=null;/*dao.login(memberdto);*/
-		return userid;
-	}
 
+	
+	  public MemberDto login(MemberDto memberdto) throws SQLException { 
+		  MemberDao dao=new MemberDao(); 
+		  MemberDto idno=dao.login(memberdto);
+		  return idno;
+	  }
+	 
 }

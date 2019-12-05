@@ -1,17 +1,19 @@
 package kr.co.hospital.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import kr.co.hospital.dao.MemberDao;
 import kr.co.hospital.dto.MemberDto;
 
 
-
-public class MemberService {
+@Service
+public class MemberService implements IMemberService {
 	
 	@Autowired
 	MemberDao dao;
 	
+	@Override
 	public MemberDto memberSearch(MemberDto memberdto) {
 		MemberDto dto = dao.login(memberdto);
 		

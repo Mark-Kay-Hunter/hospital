@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="kr.co.hospital.dao.MemberDao"  %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+<%--     <%@ page import="kr.co.hospital.dao.MemberDao"  %>
     <%@ page import = "java.io.PrintWriter" %>
     <% request.setCharacterEncoding("UTF-8"); %>
     
     <jsp:useBean id="member" class="kr.co.hospital.dto.MemberDto" scope="page"/>
     <jsp:setProperty property="idno" name="member"/>
-    <jsp:setProperty property="passwd" name="member"/>
+    <jsp:setProperty property="passwd" name="member"/> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +20,14 @@
 </script>
 </head>
 <body>
-<%
 
+member login ok
+
+id : ${idno }
+pw : ${passwd }
+
+<%
+/* 
   MemberDao memberdao = new MemberDao();
   int result = memberdao.login(member.getIdno(), member.getPasswd());
   
@@ -54,7 +62,7 @@
 	  script.println("history.back()");
 	  script.println("</script>");
   }
-
+ */
 %>
 </body>
 

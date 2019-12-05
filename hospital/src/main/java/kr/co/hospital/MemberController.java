@@ -22,8 +22,6 @@ import kr.co.hospital.member.MemberService;
 @Controller
 @RequestMapping("/member")
 
-
-
 public class MemberController {
 	
 	@Autowired
@@ -43,13 +41,15 @@ public class MemberController {
 			return "/member/login";
 		
 		session.setAttribute("memberdto", dto);
+		String idno = dto.getIdno();
+		String passwd = dto.getPasswd();
 		/*
 		 * MemberCommand lg=new MemberCommand(); String idno=lg.login(memberdto); String
 		 * passwd=memberdto.getPasswd();
 		 */
 		/* return "redirect:../home?idno="+idno+"&passwd="+passwd; */
 		
-		return "/member/login_ok";
+		return "redirect:/member/login_ok?idno="+idno+"&passwd="+passwd;
 	}
 
 	@RequestMapping("/signup")

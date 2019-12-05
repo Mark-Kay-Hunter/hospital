@@ -1,6 +1,7 @@
 package kr.co.hospital.dao;
 
 
+import java.beans.PropertyVetoException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,43 +12,56 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
-
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 import kr.co.hospital.dto.MemberDto;
 
 
 
-
-public class MemberDao 
+@Repository
+public class MemberDao implements IMemberDao
 {
 	
 	private JdbcTemplate template;
+	private ComboPooledDataSource dataSource;
 	
-	
+	/* idno에 날짜 부여하는 부분 */
 	  Calendar today = Calendar.getInstance();
 
 	  String year = Integer.toString(today.get(Calendar.YEAR));
 	  String year1 = year.substring(2,4);
 	  String month = Integer.toString(today.get(Calendar.MONTH)+1);
 	  String date = Integer.toString(today.get(Calendar.DATE));
-	  
-	  
-	  
 	  String idno1 = (year1+month+date);
-
+	  /* idno에 날짜 부여하는 부분 끝 */
+	  
+	/* DB연결 */
+	 private String driver = "oracle.jdbc.driver.OracleDriver";
+	 private String aa="jdbc:mysql://localhost:3307/hospital?useSSL=false";
+     private String bb="root";
+     private String cc="1234";
 	
-	private Connection conn;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
+     private Connection conn;
 
 	
 	public MemberDao()
 	{
 		try {
-			String aa="jdbc:mysql://localhost:3307/hospital?useSSL=false";
-			String bb="root";
-			String cc="1234";
+			dataSource = new ComboPooledDataSource();
+			try {
+				dataSource.setDriverClass(driver);
+				dataSource.setJdbcUrl(aa);
+				dataSource.setUser(bb);
+				dataSource.setPassword(cc);
+			} catch (PropertyVetoException e) {
+				e.printStackTrace();
+			}
+			
+			template = new JdbcTemplate();
+			template.setDataSource(dataSource);
+			
 			conn = DriverManager.getConnection(aa,bb,cc);
 			
 		}
@@ -58,13 +72,18 @@ public class MemberDao
 		}
 		
 	}
+	
+	/* DB연결 끝 */
 
-	public String signup(MemberDto memberdto) throws SQLException
-	{
+	@Override
+	public String signup(MemberDto memberdto) throws SQLException /* 회원가입 */
+	{    
+		/* idno 조회하는 부분 */
 		String sql="select right(idno,2) as num from member where idno like '"+idno1+"%'"+" order by id desc";
 		PreparedStatement pstmt=conn.prepareStatement(sql);
 		ResultSet rs=pstmt.executeQuery();
 		
+		/* 기존 idno 조회 후, idno 부여하는 부분 */
 		if(rs.next()) 
 		{
 			idno1=idno1+String.format("%02d",(Integer.parseInt(rs.getString("num"))+1));
@@ -91,7 +110,8 @@ public class MemberDao
 		return idno1;
 	}
 	
-	public MemberDto login(final MemberDto memberdto)
+	@Override
+	public MemberDto login(final MemberDto memberdto) /* 로그인 */
 	{
 		List<MemberDto> members = null; 
 		
