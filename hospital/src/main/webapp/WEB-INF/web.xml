@@ -27,8 +27,13 @@
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
+	
+	 <servlet-mapping>
+  		<servlet-name>jsp</servlet-name>
+  		<url-pattern>/WEB-INF/views/*</url-pattern>
+ 	</servlet-mapping>
 	
 	<!-- 한글인코딩 시작 -->
     <filter>

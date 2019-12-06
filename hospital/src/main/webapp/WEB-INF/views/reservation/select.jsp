@@ -10,6 +10,9 @@
 	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 	body { font-family: 'Jeju Gothic', serif; }
 	
+	#title { font-size:48px; }
+	#descr { font-size:16px; }
+	
 	#go_ins { width:300px; height:100px; background-color:#C8F3FF; border:none; font-size:20px; font-family: 'Jeju Gothic', serif; }
 	#go_doc { width:300px; height:100px; background-color:#C8F3FF; border:none; font-size:20px; font-family: 'Jeju Gothic', serif; }
 	#go_my { width:200px; height:100px; background-color:#D5FFBE; border:none; font-size:20px; font-family: 'Jeju Gothic', serif; }
@@ -19,6 +22,9 @@
 </style>
 </head>
 <body>
+
+<div id=title align=center>검사예약　·　진료예약</div>
+<div id=descr align=center>현재(today) 기준 30일까지 검사 및 진료예약이 가능합니다.</div> 
 
 <div class=btns align=center>
 <a href=/hospital/reservation/inspection><button type=button id=go_ins>검사예약</button></a>

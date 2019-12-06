@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 public class PaymentController {
 	
-	@RequestMapping("/payment/show")
-	public String show()
+	@RequestMapping("/payment/cost")
+	public String cost()
 	{
-		return "/payment/show";
+		return "/payment/cost";
 	}
 
 	@RequestMapping("/payment/pay")

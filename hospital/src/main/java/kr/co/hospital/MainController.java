@@ -19,5 +19,11 @@ public class MainController {
 	{
 		return "/main/main";
 	}
+	
+	@RequestMapping(value="/main/index")
+	public String index()
+	{
+		return "/main/index";
+	}
 
 }
