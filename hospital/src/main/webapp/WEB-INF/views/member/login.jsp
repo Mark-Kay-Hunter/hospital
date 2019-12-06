@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form method=post name=login action="login_ok.jsp" >
+<form method=post name=login action="login_ok" >
 <table width="560" height="252" cellpadding="0" cellspacing="0">
     
 	<tr>

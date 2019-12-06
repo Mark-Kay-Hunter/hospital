@@ -49,7 +49,18 @@ public class MemberController {
 		 */
 		/* return "redirect:../home?idno="+idno+"&passwd="+passwd; */
 		
-		return "redirect:/member/login_ok?idno="+idno+"&passwd="+passwd;
+		return "redirect:/member/login_com?idno="+idno+"&passwd="+passwd;
+	}
+	
+	@RequestMapping("/login_com")
+	public String login_com(HttpServletRequest request, Model model, MemberDto memberdto)
+	{
+		//model.addAttribute("memberdto", memberdto);
+		String idno=request.getParameter("idno");
+		String passwd=request.getParameter("passwd");
+		model.addAttribute("idno", idno);
+		model.addAttribute("passwd", passwd);
+		return "home";
 	}
 
 	@RequestMapping("/signup")
