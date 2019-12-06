@@ -11,12 +11,5 @@ public class MemberCommand {
 		String idno = dao.signup(memberdto);
 		return idno;
 	}
-
-	
-	  public MemberDto login(MemberDto memberdto) throws SQLException { 
-		  MemberDao dao=new MemberDao(); 
-		  MemberDto idno=dao.login(memberdto);
-		  return idno;
-	  }
 	 
 }
