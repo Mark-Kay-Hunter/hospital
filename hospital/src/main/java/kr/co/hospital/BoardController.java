@@ -44,6 +44,7 @@ public class BoardController {
 	public String list(Model model, HttpServletRequest request)
 	{
 		/*
+		 * 사용자 계정(admin) session으로 불러오는 곳(경로 확인 요망)
 		 * HttpSession session = request.getSession(); MemberDto menberdto =
 		 * (MemberDto)session.getAttribute("memberdto");
 		 */
@@ -64,17 +65,19 @@ public class BoardController {
 		if(tot_page%10 != 0)
 			page_cnt = page_cnt + 1;
 		
+		System.out.print(start);
 		// 검색 기능 관련
 		String keyword = request.getParameter("keyword");
 		String searchType = request.getParameter("searchType");
 		ArrayList<BoardDto> list = null;
-		if(searchType == null) /*기본 list*/
+		if(searchType == null || searchType.length() == 0) /*기본 list*/
 		   list = boarddao.list(start);
 		else if(searchType.equals("0")) /*keyword만 있을때*/
 			list = boarddao.list2(keyword, start);
 		else /*searchType, keyword 둘다 존재*/ 
 		    list = boarddao.list3(searchType, keyword, start);
 		
+		System.out.print("size : "+list.size());
 		model.addAttribute("page_cnt", page_cnt);
 		model.addAttribute("page", page);
 		model.addAttribute("list", list);

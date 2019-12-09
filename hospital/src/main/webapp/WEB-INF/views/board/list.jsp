@@ -15,7 +15,7 @@ function userType_page() {
 </head>
 <body onload="userType_page()">
 <!-- 공지사항 부분
-- 최근 작성된 글이 상위로 이동
+- 최근 작성된 글이 상위로 이동 
 - 분류 검색 기능 
 - 분류 value 값에 맞는 종류 출력
 - 조회수 부분  
@@ -71,20 +71,52 @@ function userType_page() {
     
     <tr>
         <td width="650" colspan="5"><!-- 둘다 나타나기 -->
-        <c:if test="${page == 1}">
+        <c:if test="${page eq 1}">
         [이전]
         </c:if>
-        <c:if test="${page != 1}">
+<%--         <c:if test="${page ne 1}">
         <a href="list?page=${page-1}&searchType=${searchType}&keyword=${keyword}">[이전]</a>
-        </c:if>
-        <c:if test="${page == page_cnt}">
+        </c:if> --%>
+        <c:choose>
+          <c:when test="${page ne 1 && empty seachType && empty keyword}">
+            <!-- searchType, keyword 값이 없을때 -->
+            <a href="list?page=${page-1}">[이전]</a>
+          </c:when>
+          <c:when test="${page ne 1 && empty seachType && keyword ne null}">
+            <!-- searchType 값이 없을때 -->
+            <a href="list?page=${page-1}&searchType=0&keyword=${keyword}">[이전]</a>
+          </c:when>
+          <c:when test="${page ne 1 && seachType ne null && keyword ne null}">
+            <!-- searchType, keyword 둘다 값이 있을때 -->
+            <a href="list?page=${page-1}&searchType=${searchType}&keyword=${keyword}">[이전]</a>
+          </c:when>
+        </c:choose>
+        <c:if test="${page eq page_cnt}">
         [다음]
         </c:if>
-        <c:if test="${page != page_cnt}">
+<%--         <c:if test="${page ne page_cnt}">
         <a href="list?page=${page+1}&searchType=${searchType}&keyword=${keyword}">[다음]</a>
+        </c:if> --%>
+        <c:choose>
+          <c:when test="${page ne page_cnt && empty seachType && empty keyword}">
+            <!-- searchType, keyword 값이 없을때 -->
+            <a href="list?page=${page+1}">[다음]</a>
+          </c:when>
+          <c:when test="${page ne page_cnt && empty seachType && keyword ne null}">
+            <!-- searchType 값이 없을때 -->
+            <a href="list?page=${page+1}&searchType=0&keyword=${keyword}">[다음]</a>
+          </c:when>
+          <c:when test="${page ne page_cnt && seachType ne null && keyword ne null}">
+            <!-- searchType, keyword 둘다 값이 있을때 -->
+            <a href="list?page=${page+1}&searchType=${searchType}&keyword=${keyword}">[다음]</a>
+          </c:when>
+        </c:choose>
+        </td>
+        <td id="pageType_admin"><!-- admin page에서만 -->
+        <c:if test="${idno eq admin}">
+        <a href="write">글쓰기</a>
         </c:if>
         </td>
-        <td id="pageType_admin"><a href="write">글쓰기</a></td><!-- admin page에서만 -->
     </tr>
     
 	<tr>
