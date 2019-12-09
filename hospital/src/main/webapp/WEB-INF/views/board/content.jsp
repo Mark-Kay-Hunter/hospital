@@ -31,18 +31,11 @@
 		</td>
     </tr>
 
-    <!-- client page -->
     <tr>
         <td width="600" colspan="6">
-        <a href="list">목록</a>
-	    </td>
-    </tr>
-    <!-- admin page -->
-    <tr>
-        <td width="600" colspan="6">
-        <a href="delete?id=${boarddto.id}">삭제</a>
-        <a href="update?id=${boarddto.id}">수정</a>
-        <a href="list">목록</a>
+        <a href="delete?id=${boarddto.id}">삭제</a><!-- admin page -->
+        <a href="update?id=${boarddto.id}">수정</a><!-- admin page -->
+        <a href="list">목록</a><!-- 둘다 출력 -->
 	    </td>
     </tr>
 

@@ -5,8 +5,20 @@
 		INSERT INTO BOARD(WTITLE,WNAME,WPWD,WCAT,WCONT,WRITEDAY) VALUES(#{param1},#{param2},#{param3},#{param4},#{param5},now())
 	</insert>
 	
+	<select id="list_cnt" resultType="int">
+	    SELECT COUNT(*) FROM BOARD
+	</select>
+	
 	<select id="list" resultType="kr.co.hospital.dto.BoardDto">
-        SELECT * FROM BOARD ORDER BY ID DESC
+        SELECT * FROM BOARD ORDER BY ID DESC LIMIT #{param1}, 10
+    </select>
+    
+    <select id="list2" resultType="kr.co.hospital.dto.BoardDto">
+        SELECT * FROM BOARD WHERE WTITLE LIKE CONCAT('%',#{param1},'%') ORDER BY ID DESC LIMIT #{param2}, 10
+    </select>
+    
+    <select id="list3" resultType="kr.co.hospital.dto.BoardDto">
+        SELECT * FROM BOARD WHERE WCAT=#{param1} AND WTITLE LIKE CONCAT('%',#{param2},'%') ORDER BY ID DESC LIMIT #{param3}, 10
     </select>
     
     <select id="content" resultType="kr.co.hospital.dto.BoardDto">

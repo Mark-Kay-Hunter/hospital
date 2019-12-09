@@ -7,10 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-
+function userType_page() {
+	/* admin */
+	/* client */
+}
 </script>
 </head>
-<body>
+<body onload="userType_page()">
 <!-- 공지사항 부분
 - 최근 작성된 글이 상위로 이동
 - 분류 검색 기능 
@@ -66,39 +69,38 @@
     <c:set var="len" value="${len-1}"/>
     </c:forEach>
     
-    <!-- client page -->
     <tr>
-        <td width="650" colspan="5">[이전][다음]</td>
-    </tr>
-    
-    <!-- admin page -->
-    <tr>
-        <td width="650" colspan="5">[이전][다음]</td>
-        <td><a href="write">글쓰기</a></td>
+        <td width="650" colspan="5"><!-- 둘다 나타나기 -->
+        <c:if test="${page == 1}">
+        [이전]
+        </c:if>
+        <c:if test="${page != 1}">
+        <a href="list?page=${page-1}&searchType=${searchType}&keyword=${keyword}">[이전]</a>
+        </c:if>
+        <c:if test="${page == page_cnt}">
+        [다음]
+        </c:if>
+        <c:if test="${page != page_cnt}">
+        <a href="list?page=${page+1}&searchType=${searchType}&keyword=${keyword}">[다음]</a>
+        </c:if>
+        </td>
+        <td id="pageType_admin"><a href="write">글쓰기</a></td><!-- admin page에서만 -->
     </tr>
     
 	<tr>
         <td width="650" height="9" colspan="5">
         <!-- search start -->
-        <div class="fom-group row justify-content-center">
-        <div class="w100" style="padding-right:10px">
-		<select class="form-control from-control-sm" name="searchType">
+        <form method="post" action="list">
+		<select name="searchType">
 			<option value=0>[분류로검색]</option>
 			<option value=1>[공지사항]</option>
 			<option value=2>[건강정보]</option>
 			<option value=3>[보도자료]</option>
 		</select>
-		</div>
-		<div class="w300" style="padding-right:10px">
-		<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
-		</div>
-		<div>
-		<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">
-		검색
-		</button>
-		</div>
-		</div>
-		<!-- search end -->
+
+		<input type="text" size="20" name="keyword">
+		<input type="submit" value="검색">
+        </form>
 		</td>
     </tr>
 
