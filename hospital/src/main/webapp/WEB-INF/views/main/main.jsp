@@ -8,7 +8,7 @@
 <style>
 
 	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
-	body { font-family: 'Jeju Gothic', serif; }
+	body { font-family: 'Jeju Gothic', serif; align:center; }
 
 	#show { width:300px; height:600px; float:left; }
 	.btns { width:700px; height:600px; float:left; }

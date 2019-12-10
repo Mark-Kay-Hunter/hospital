@@ -12,16 +12,21 @@
 	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 	body { font-family: 'Jeju Gothic', serif; align:center; }
 		
-	#upper { width:auto; height:50px; background:#1F76C0; }
-	#link { width:auto; height:15px; align:right; background:#1F76C0; }
-	#menu { width:auto; height:70px; align:center; background:#1F76C0; color:#FAFAFA; }
+	#upper { width:auto; height:110px; background:#019DDD; }
+	#link { width:auto; height:20px; align:right; background:#019DDD; }
+	#menu { width:auto; height:50px; align:center; background:#019DDD; color:#FAFAFA; }
 	#main { width:auto; height:600px; }
 	#footer { width:auto; height:100px; }
 	
 	dl dd { display:inline-block; }
 	
-	#go_login { background-color:transparent; border:none; }
-	#go_signup { background-color:transparent; border:none; }
+	#go_login { background-color:transparent; border:none; font-family: 'Jeju Gothic', serif; font-size:15px; }
+	#go_signup { background-color:transparent; border:none; font-family: 'Jeju Gothic', serif; font-size:15px; }
+	
+	#go_home { width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; }
+	#go_reservation { width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; } 
+	#go_schedule { width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; }
+	#go_payment	{ width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; }
 
 	</style>
 	
@@ -39,7 +44,7 @@
 
 	<div id="upper">
 	
-	<img src="image/upperbanner.png" />
+	<img src="resources/image/hosci.png"><img src="resources/image/best3.png">
 	
 	</div>
 	
@@ -52,21 +57,19 @@
 			</dl>
 		</nav>
 	</div>
-		
+		<p>
+	
 	
 	<div id="menu" align=center>
 	
 	<nav id="nav2">
-			<dl>
-				<dd><a onclick='open_in_frame("/hospital/main/main")'>메인</a></dd>
-				<dd><a onclick='open_in_frame("/hospital/reservation/select")'>예약</a></dd>
-				<dd><a onclick='open_in_frame("/hospital/schedule/check")'>일정</a></dd>
-				<dd><a onclick='open_in_frame("/hospital/payment/cost")'>결제</a></dd>
-			</dl>
-		</nav>
+		<button id=go_home onclick='open_in_frame("/hospital/main/main")'>메인</button>
+		<button id=go_reservation onclick='open_in_frame("/hospital/reservation/select")'>예약</button>
+		<button id=go_schedule onclick='open_in_frame("/hospital/schedule/check")'>일정</button>
+		<button id=go_payment onclick='open_in_frame("/hospital/payment/cost")'>결제</button>	
+	</nav>
 	
 	</div>
-	
 	
 	<div id="main" align=center>
 	
@@ -84,11 +87,11 @@
 			</div>
 
 		<div class="col-md-4 col-sm-12">
-			<ul class="social-icons">
-				<li><a href="#">MK</a></li>
-				<li><a href="#">JY</a></li>
-				<li><a href="#">SG</a></li>
-			</ul>
+			<dl class="social-icons">
+				<dd><a href="#">MK</a></dd>
+				<dd><a href="#">JY</a></dd>
+				<dd><a href="#">SG</a></dd>
+			</dl>
 		</div>
 
 		<div class="col-md-2 col-md-offset-2 col-sm-12">

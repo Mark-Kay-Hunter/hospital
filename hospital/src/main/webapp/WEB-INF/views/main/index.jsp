@@ -6,50 +6,30 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<script>
+<style>
 
-function selchk() 
-{
+	#go_home { width:150px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; }
+	#go_reservation { width:150px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; } 
+	#go_schedule { width:150px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; }
+	#go_payment	{ width:150px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; }
 
-	var num = test.sct.value;
-	
-}
-
-function clck()
-{
-	var num = test.sct.value;
-	var n2 = chk.check.value;
-	alert(num, n2);
-	
-}
-
-</script>
+</style>
 
 </head>
 <body>
 
-<center><font size=20>소스 테스트 페이지입니다. 삭제예정임.</font></center>
+	<nav id="nav2">
+	
+	<button id=go_home onclick='open_in_frame("/hospital/main/main")'>메인</button>
+	
+	<button id=go_reservation onclick='open_in_frame("/hospital/reservation/select")'>예약</button>
+	
+	<button id=go_schedule onclick='open_in_frame("/hospital/schedule/check")'>일정</button>
+	
+	<button id=go_payment onclick='open_in_frame("/hospital/payment/cost")'>결제</button>	
 
-<form name=test>
-<select name="sct" onchange="selchk();">
-	<option value="0">0</option>
-	<option value="1">1</option>
-	<option value="2">2</option>
-	<option value="3">3</option>
-	<option value="4">4</option>
-	<option value="5">5</option>
-	<option value="6">6</option>
-	<option value="7">7</option>
-</select>
-</form>
-<p>
-<form name=chk>
-<input type=checkbox name=check value='1'>■
-<input type=checkbox name=check value='2'>■
-<input type=checkbox name=check value='3'>■
-</form>
-
-<input type=button onclick="clck()" value="RE">
+	</nav>
+	
 
 </body>
 </html>

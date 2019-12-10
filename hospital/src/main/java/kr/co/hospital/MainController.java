@@ -25,5 +25,11 @@ public class MainController {
 	{
 		return "/main/index";
 	}
+	
+	@RequestMapping(value="/main/sorry")
+	public String sorry()
+	{
+		return "/main/sorry";
+	}
 
 }

@@ -5,6 +5,9 @@
 <head>
 <style>
 
+	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+	body { font-family: 'Jeju Gothic', serif; }
+
 	#calender {width:400px; height:300px; background-color:blue;}
 	#time {width:400px; height:30px; background-color:red;}
 	
@@ -86,6 +89,54 @@ tbCalendarYM.innerHTML = today.getFullYear() + "년 " + (today.getMonth() + 1) +
 
 //여기부터 Select-Check에 대한 SC
 
+function inspselect()
+{
+	
+	var selno = insp_sel.insp_type.value;
+						
+	switch (selno)
+	{
+	case "1": 	document.getElementById("1").checked = true;
+				document.getElementById("3").checked = true;
+				document.getElementById("2").checked = false;
+				document.getElementById("4").checked = false;
+				document.getElementById("5").checked = false;
+				document.getElementById("6").checked = false; break;
+	
+	case "2": 	document.getElementById("1").checked = true;
+				document.getElementById("2").checked = true;
+				document.getElementById("3").checked = true;
+				document.getElementById("4").checked = false;
+				document.getElementById("5").checked = false;
+				document.getElementById("6").checked = false; break;
+	
+	case "3": 	document.getElementById("3").checked = true;
+				document.getElementById("4").checked = true;
+				document.getElementById("6").checked = true;
+				document.getElementById("1").checked = false;
+				document.getElementById("2").checked = false;
+				document.getElementById("5").checked = false; break;
+	
+	case "4": 	document.getElementById("4").checked = true;
+				document.getElementById("5").checked = true;
+				document.getElementById("6").checked = true;
+				document.getElementById("1").checked = false;
+				document.getElementById("2").checked = false;
+				document.getElementById("3").checked = false; break;
+				
+	default:	alert("검사내용을 선택해 주세요.");
+				document.getElementById("1").checked = false;
+				document.getElementById("2").checked = false;
+				document.getElementById("3").checked = false;
+				document.getElementById("4").checked = false;
+				document.getElementById("5").checked = false;
+				document.getElementById("6").checked = false; break;
+	}
+	
+}
+
+//여기부터 Select-Check에 대한 SC
+
 </script>
 
 </head>
@@ -116,53 +167,58 @@ tbCalendarYM.innerHTML = today.getFullYear() + "년 " + (today.getMonth() + 1) +
 
 <p>[휴일검사 가능시간]토요일: 오전 9시 ~ 12시 일요일/공휴일: 불가(입원환자 우선)</p>
 <p>선택한 예약일: 0000-00-00</p>
-<p>&nbsp;</p>
-<form name="form1">
-    <p>검사종류: <select name="insp_sel" size="1" onchange="fnSelectChange()">
-        <option value="0" selected>--선택하세요--</option>
-        <option value="1">일반검진</option>
-        <option value="2">정기검진</option>
-        <option value="3">진료전검진</option>
-				</select></p>
-</form>
-<p>&nbsp;</p>
-<form name="form2">
-<table width="450" cellpadding="0" cellspacing="0">
+
+<p>
+
+<form name="insp_sel">
+
+    검사종류:	<select name="insp_type" size="1" onchange="inspselect()">
+        			<option value="0" selected>［검진선택］</option>
+        			<option value="1">일반예약검사</option>
+        			<option value="2">공단정기검진</option>
+					<option value="3">치료경과검사</option>
+					<option value="4">기타선택검사</option>
+				</select>
+
+<p>
+
+	<table width="450" cellpadding="0" cellspacing="0">
     <tr>
         <td width="150">
-                <p><input type="checkbox" id="c1">혈액검사</p>
+			<input type="checkbox" name=insp_chk id="1">혈액검사
         </td>
 		
         <td width="150">
-                <p><input type="checkbox" id="c2">소변검사</p>
+			<input type="checkbox" name=insp_chk id="2">소변검사
         </td>
 		
         <td width="150">
-                <p><input type="checkbox" id="c3">X-RAY촬영</p>
+			<input type="checkbox" name=insp_chk id="3">X-RAY촬영
         </td>
 		
     </tr>
 	
     <tr>
         <td width="150">
-                <p><input type="checkbox" id="c4">MRI촬영</p>
+			<input type="checkbox" name=insp_chk id="4">MRI촬영
         </td>
 		
         <td width="150">
-                <p><input type="checkbox" id="c5">CT촬영</p>
+			<input type="checkbox" name=insp_chk id="5">CT촬영
         </td>
 		
         <td width="150">
-                <p><input type="checkbox" id="c6">내시경</p>
+			<input type="checkbox" name=insp_chk id="6">내시경
         </td>
 		
     </tr>
     <tr>
-        <td width="450" colspan="3">※ 진료내역에 따라 당일 추가적인 검진이 있을 수 있습니다.</td>
+		<td width="450" colspan="3">※ 진료내역에 따라 당일 추가적인 검진이 있을 수 있습니다.</td>
     </tr>
 </table>
 
 </form>
+
 </body>
 
 </html>
