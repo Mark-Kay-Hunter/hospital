@@ -127,10 +127,6 @@ public class MemberController {
 		return "/member/signup_com";
 	}
 	
-	@RequestMapping("/modify")
-	public String modify()
-	{
-		return "/member/modify";
-	}
+
 
 }
