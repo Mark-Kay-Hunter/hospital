@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.hospital.command.MemberCommand;
 import kr.co.hospital.dto.MemberDto;
@@ -34,20 +35,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/login_ok")
-	public String member_ok(MemberDto memberdto,  HttpSession session) 
+	public String member_ok(MemberDto memberdto, Model model,  HttpSession session) 
 	{
 		MemberDto dto = service.memberSearch(memberdto);
-		if(dto == null)
-			return "/member/login";
 		
+		if(dto == null) {
+			int error = 1;
+			model.addAttribute("error", error);
+			return "/member/login";
+		}
+			
 		session.setAttribute("memberdto", dto);
 		String idno = dto.getIdno();
 		String passwd = dto.getPasswd();
-		/*
-		 * MemberCommand lg=new MemberCommand(); String idno=lg.login(memberdto); String
-		 * passwd=memberdto.getPasswd();
-		 */
-		/* return "redirect:../home?idno="+idno+"&passwd="+passwd; */
 		
 		return "redirect:/member/login_com?idno="+idno+"&passwd="+passwd;
 	}
@@ -61,6 +61,38 @@ public class MemberController {
 		model.addAttribute("idno", idno);
 		model.addAttribute("passwd", passwd);
 		return "home";
+	}
+	
+	@RequestMapping("/modify")
+	public ModelAndView modify(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		MemberDto memberdto = (MemberDto) session.getAttribute("memberdto");
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("memberdto",service.memberSearch(memberdto));
+		
+		mav.setViewName("/member/modify");
+		
+		return mav;
+	}
+	
+	@RequestMapping("/modify_com")
+     public ModelAndView modify(MemberDto memberdto, HttpServletRequest request) {
+		
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		
+		MemberDto dto = service.memberUpdate(memberdto);
+		if(dto == null) {
+			mav.setViewName("/member/modify");
+		} else { 
+			session.setAttribute("memberdto", dto);
+			
+			mav.addObject("memAft", dto);
+			mav.setViewName("/member/modify_com");
+		}
+		
+		return mav;
 	}
 
 	@RequestMapping("/signup")

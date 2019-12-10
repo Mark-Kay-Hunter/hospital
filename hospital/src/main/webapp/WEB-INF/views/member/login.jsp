@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +14,7 @@
 
 <form method=post name=login action="login_ok" >
 <table width="560" height="252" cellpadding="0" cellspacing="0">
+
     
 	<tr>
         <td width="560" colspan="3">
@@ -34,20 +35,21 @@
         </td>
         <td width="460" colspan="2"><input type="password" size="40" name="passwd"></td>
     </tr>
-<!-- 	
+    <c:set var="error" value="${error}"/>
+	<c:if test="${error eq 1 }">
     <tr>
-		이부분은 로그인 실패시 안내메세지가 나타나게 할거라 Hidden을 기본 설정으로 해주세요.
+		<!-- 로그인 실패시 안내메세지 -->
         <td width="560" height="7" colspan="3">
-            <p align="center">ID와 비밀번호를 확인해주세요.</p>
+            <p align="center"><div style="color:red">ID와 비밀번호를 확인해주세요.</div></p>
         </td>
     </tr>
-	 -->
+	</c:if>
     <tr>
         <td width="280" height="60" colspan="2">
             <p align="center"> <input type="submit" value="로그인"> </p>
         </td>
         <td width="280" height="60">
-            <p align="center"> <input type="button" value="회원가입"> </p>
+            <p align="center"> <input type="button" value="회원가입" onclick="javascript:location.href='/hospital/member/signup';"/></p>
         </td>
     </tr>
 	

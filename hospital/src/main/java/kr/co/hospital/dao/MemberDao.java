@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -134,6 +135,26 @@ public class MemberDao implements IMemberDao
 		
 		return members.get(0);
 		
+	}
+	
+	@Override
+	public int memberUpdate(final MemberDto memberdto) {
+		int result = 0;
+		final String sql = "update member set passwd = ?, passre = ?, name = ?, zip = ?, adr1 = ?, adr2 = ?, ph = ?, em = ?";
+		
+		result = template.update(sql, new PreparedStatementSetter() {
+			@Override
+			public void setValues(PreparedStatement pstmt) throws SQLException {
+				pstmt.setString(1, memberdto.getPasswd());
+				pstmt.setString(2, memberdto.getName());
+				pstmt.setString(3, memberdto.getZip());
+				pstmt.setString(4, memberdto.getAdr1());
+				pstmt.setString(5, memberdto.getAdr2());
+				pstmt.setString(6, memberdto.getPh());
+				pstmt.setString(7, memberdto.getEm());
+			}
+		});
+		return result;
 	}
 
 

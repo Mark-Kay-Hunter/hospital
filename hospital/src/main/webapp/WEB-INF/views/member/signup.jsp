@@ -13,26 +13,10 @@
 <script>
 	// idno:: 자동생성합니다.
 	// table생성:: id, idno, passwd, passre, name, zip(char), adr1, adr2, ph1, em1
-	/* 비밀번호 일치 체크  */
-	function pwd_check()
-	{
-		pass1=document.getElementById("passwd").value;
-		pass2=document.getElementById("passre").value;
-		if(pass1 !== pass2)
-			{
-			alert("비밀번호가 일치하지 않습니다.");
-			document.getElementById("passre").focus();
-			return false;
-		
-			}
-		else
-			{
-			return true;
-			}
-			
-	}
+
 	
 	/*  미작성한 내용 있는지 체크하고 알림 띄우기 */
+	
 	function rule_check(form)
  {
 	if(form.passwd.value=="")
@@ -41,7 +25,7 @@
 		form.passwd.focus();
 		return false;
 		}
-	else if(form.passre.value=="")
+	else if(form.passre.value != form.passwd.value)
 		{
 		alert("비밀번호가 일치하지 않습니다.");
 		form.passre.focus();
@@ -65,21 +49,21 @@
 		form.adr2.focus();
 		return false;
 		}
-	else if(form.phone.value=="")
+	else if(form.ph.value=="")
 		{
 		alert("전화번호를 입력하세요.");
-		form.phone.focus();
+		form.ph.focus();
 		return false;
 		}
-	else if(form.email.value=="")
+	else if(form.em.value=="")
 		{
 		alert("이메일 주소를 입력하세요.");
-		form.email.focus();
+		form.em.focus();
 		return false;
 		}
-	else if((document.getElementByName("okay").value) !== checked)
+	else if(form.okay.checked != true)
 		{
-		alert("약관에 동의해주세요.");
+		alert("이용 약관에 동의하셔야 회원 가입이 가능 합니다.");
 		return false;
 		}
 	else  
@@ -236,7 +220,7 @@
         <td height="15" bgcolor="#FFFFFF" align="center" colspan="2" width="584">웅앵웅 쵸키포키</td>
     </tr>
     <tr>
-        <td height="15" align="center" colspan="2" bgcolor="white" width="584"><input type="checkbox" name="okay">약관에 동의하며 회원가입합니다.</td>
+        <td height="15" align="center" colspan="2" bgcolor="white" width="584"><input type="checkbox" name="okay" id="okay" value=1>약관에 동의하며 회원가입합니다.</td>
     </tr>
     <tr>
         <td height="2" colspan="2" bgcolor="#FF7A96" width="584"></td>

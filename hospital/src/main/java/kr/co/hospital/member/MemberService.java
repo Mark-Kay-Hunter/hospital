@@ -7,6 +7,7 @@ import kr.co.hospital.dao.MemberDao;
 import kr.co.hospital.dto.MemberDto;
 
 
+
 @Service
 public class MemberService implements IMemberService {
 	
@@ -24,5 +25,20 @@ public class MemberService implements IMemberService {
 		}
 		
 		return dto;
+	}
+	
+
+	@Override
+	public MemberDto memberUpdate(MemberDto memberdto) {
+        int result = dao.memberUpdate(memberdto);
+		
+		if(result == 0 ) {
+			System.out.println("Modify Fail!!");
+			return null;
+		} else {
+			System.out.println("Modify Success!!");
+		}
+		
+		return memberdto;
 	}
 }
