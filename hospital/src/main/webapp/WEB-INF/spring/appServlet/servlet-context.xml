@@ -25,9 +25,9 @@
 	
 	<interceptors>
 		<interceptor>
-			<mapping path="/member/modifyForm"/>
-			<mapping path="/member/removeForm"/>
-			<!-- 
+			<mapping path="/member/modify"/>
+			<!-- <mapping path="/member/removeForm"/>
+			
 			<mapping path="/member/**"/>
 			<exclude-mapping path="/member/joinForm"/>
 			<exclude-mapping path="/member/join"/>
@@ -36,7 +36,7 @@
 			<exclude-mapping path="/member/logout"/>
 			<exclude-mapping path="/member/modify"/>
 			<exclude-mapping path="/member/remove"/>
-			-->
+			 -->
 			<beans:bean class="kr.co.hospital.member.MemberLoginInterceptor"/>
 		</interceptor>
 	</interceptors>

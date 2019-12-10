@@ -41,17 +41,22 @@
 </head>
 
 <body>
-
+<div> idno ${idno} </div>
 	<div id="upper">
 	
 	<img src="resources/image/hosci.png"><img src="resources/image/best3.png">
 	
 	</div>
 	
-
+<c:set var="idno" value="${idno}"/>
+<c:set var="passwd" value="${passwd}"/>
 	<div id="link" align=right>
 		<nav id="nav">
 			<dl>
+			  <c:if test="${idno ne null }">
+				<dd><button id=go_login onclick='open_in_frame("/hospital/member/modify")'>회원정보수정</button></dd>
+				<dd><button id=go_signup onclick='open_in_frame("/hospital/member/logout")'>로그아웃</button></dd>
+				</c:if>
 				<dd><button id=go_login onclick='open_in_frame("/hospital/member/login")'>로그인</button></dd>
 				<dd><button id=go_signup onclick='open_in_frame("/hospital/member/signup")'>회원가입</button></dd>
 			</dl>

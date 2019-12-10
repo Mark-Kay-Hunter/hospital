@@ -46,21 +46,32 @@ public class MemberController {
 		}
 			
 		session.setAttribute("memberdto", dto);
-		String idno = dto.getIdno();
-		String passwd = dto.getPasswd();
 		
-		return "redirect:/member/login_com?idno="+idno+"&passwd="+passwd;
+		 String idno = dto.getIdno(); 
+		 String passwd = dto.getPasswd();
+		 String name = dto.getName();
+		  
+		return "redirect:../main/main?idno="+idno+"&passwd="+passwd+"&name="+name;
+		 
 	}
 	
-	@RequestMapping("/login_com")
-	public String login_com(HttpServletRequest request, Model model, MemberDto memberdto)
-	{
-		//model.addAttribute("memberdto", memberdto);
-		String idno=request.getParameter("idno");
-		String passwd=request.getParameter("passwd");
-		model.addAttribute("idno", idno);
-		model.addAttribute("passwd", passwd);
-		return "home";
+	/*
+	 * @RequestMapping("/login_com") public String login_com(HttpServletRequest
+	 * request, Model model, MemberDto memberdto) {
+	 * //model.addAttribute("memberdto", memberdto); String
+	 * idno=request.getParameter("idno"); String
+	 * passwd=request.getParameter("passwd"); String
+	 * name=request.getParameter("name"); model.addAttribute("idno", idno);
+	 * model.addAttribute("passwd", passwd); model.addAttribute("name", name);
+	 * return "redirect:../home?idno="+idno+"&passwd="+passwd+"&name="+name; }
+	 */
+	
+	@RequestMapping("/logout")
+	public String logout(MemberDto memberdto, HttpSession session) {
+		
+		session.invalidate();
+		
+		return "/member/login";
 	}
 	
 	@RequestMapping("/modify")
