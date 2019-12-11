@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
@@ -45,6 +47,8 @@ public class MemberDao implements IMemberDao
      private String cc="1234";
 	
      private Connection conn;
+     
+
 
 	
 	public MemberDao()

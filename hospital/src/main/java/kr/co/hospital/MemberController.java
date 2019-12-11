@@ -47,11 +47,15 @@ public class MemberController {
 			
 		session.setAttribute("memberdto", dto);
 		
-		 String idno = dto.getIdno(); 
-		 String passwd = dto.getPasswd();
-		 String name = dto.getName();
-		  
-		return "redirect:../main/main?idno="+idno+"&passwd="+passwd+"&name="+name;
+		
+		  String idno = dto.getIdno(); 
+		  String passwd = dto.getPasswd(); 
+		  String name = dto.getName();
+		 
+		
+		 return "redirect:../main/main?idno="+idno+"&passwd="+passwd+"&name="+name; 
+		
+		/* return "redirect:../main/main?memberdto"; */
 		 
 	}
 	
