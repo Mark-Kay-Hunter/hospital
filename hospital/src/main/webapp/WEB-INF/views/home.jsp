@@ -5,28 +5,32 @@
 <html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <head>
-<title>[ Project ]</title>
+<title>[ :: 우리병원 홈페이지 :: ProtoType :: OnTest :: ]</title>
 	<style>
 	
 	
 	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 	body { font-family: 'Jeju Gothic', serif; align:center; }
 		
-	#upper { width:auto; height:110px; background:#019DDD; }
+	#upper { width:auto; height:110px; background:#019DDD; color:#FAFAFA; }
 	#link { width:auto; height:20px; align:right; background:#019DDD; }
 	#menu { width:auto; height:50px; align:center; background:#019DDD; color:#FAFAFA; }
 	#main { width:auto; height:600px; }
 	#footer { width:auto; height:100px; }
 	
+	#up1 { width:25%; height:110px; float:left; }
+	#up2 { width:75%; height:110px; float:left; }
+	
 	dl dd { display:inline-block; }
 	
-	#go_login { background-color:transparent; border:none; font-family: 'Jeju Gothic', serif; font-size:15px; }
-	#go_signup { background-color:transparent; border:none; font-family: 'Jeju Gothic', serif; font-size:15px; }
+	#go_login { background-color:transparent; border:none; font-family: 'Jeju Gothic', serif; font-size:15px; color:#FAFAFA; }
+	#go_signup { background-color:transparent; border:none; font-family: 'Jeju Gothic', serif; font-size:15px; color:#FAFAFA; }
 	
-	#go_home { width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; }
-	#go_reservation { width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; } 
-	#go_schedule { width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; }
-	#go_payment	{ width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; }
+	#go_home { width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; }
+	#go_board { width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; }
+	#go_reservation { width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; } 
+	#go_schedule { width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; }
+	#go_payment	{ width:200px; height:20px; border:none; background-color:transparent; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; }
 
 	</style>
 	
@@ -44,7 +48,7 @@
 
 	<div id="upper">
 	
-	<img src="resources/image/hosci.png"><img src="resources/image/best3.png">
+	<div id=up1 align=center><img src="resources/image/wrhosci.png"></div><div id=up2 align=center><img src="resources/image/title.png"></div>
 	
 	</div>
 	
@@ -52,18 +56,17 @@
 	<div id="link" align=right>
 		<nav id="nav">
 			<dl>
-				<dd><button id=go_login onclick='open_in_frame("/hospital/member/login")'>로그인</button></dd>
-				<dd><button id=go_signup onclick='open_in_frame("/hospital/member/signup")'>회원가입</button></dd>
+				<dd><button id=go_login onclick='window.open("/hospital/member/login", "로그인", "width=600px, height=350px")'>로그인</button></dd>
+				<dd><button id=go_signup onclick='window.open("/hospital/member/signup", "회원가입", "width=650px, height=550px")'>회원가입</button></dd>
 			</dl>
 		</nav>
-	</div>
-		<p>
-	
+	</div>	
 	
 	<div id="menu" align=center>
 	
 	<nav id="nav2">
 		<button id=go_home onclick='open_in_frame("/hospital/main/main")'>메인</button>
+		<button id=go_board onclick='open_in_frame("/hospital/board/list")'>게시판</button>
 		<button id=go_reservation onclick='open_in_frame("/hospital/reservation/select")'>예약</button>
 		<button id=go_schedule onclick='open_in_frame("/hospital/schedule/check")'>일정</button>
 		<button id=go_payment onclick='open_in_frame("/hospital/payment/cost")'>결제</button>	

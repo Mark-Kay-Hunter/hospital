@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>결제금액 확인</title>
 </head>
 
 <style>
@@ -15,6 +15,9 @@
 	#cost_ins { display:inline-block; }
 	#cost_doc { display:inline-block; }
 	#cost_btns { clear:both; }
+	
+	#from_name { display:inline-block; }
+	#from_total { display:inline-block; }
 
 </style>
 
@@ -22,7 +25,7 @@
 
 <div id=cost_all align=center>
 
-<b><font color=#15459E>${name}님</font></b>께서 결제하실 총금액은 <b><font color=#15459E>${total_cost}원</font></b>입니다.
+<div id=from_name><b><font color=#15459E>${name}</div>님</font></b>께서 결제하실 총금액은 <div id=from_total><b><font color=#15459E>${total_cost}원</div></font></b>입니다.
 
 </div>
 

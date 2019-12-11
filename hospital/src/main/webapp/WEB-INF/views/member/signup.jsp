@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>우리병원 회원가입</title>
 <STYLE>
 	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 	body { font-family: 'Jeju Gothic', serif; }

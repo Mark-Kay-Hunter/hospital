@@ -10,38 +10,44 @@
 	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 	body { font-family: 'Jeju Gothic', serif; align:center; }
 
-	#show { width:300px; height:600px; float:left; }
-	.btns { width:700px; height:600px; float:left; }
-	#menu0 { background-color:#4080FF; border:none; color:white; width:200px; height:250px; font-family: 'Jeju Gothic', serif; }
-	#menu1 { background-color:#4080FF; border:none; color:white; width:200px; height:250px; font-family: 'Jeju Gothic', serif; }
-	#menu2 { background-color:#4080FF; border:none; color:white; width:200px; height:250px; font-family: 'Jeju Gothic', serif; }
-	#menu3 { background-color:#4080FF; border:none; color:white; width:200px; height:250px; font-family: 'Jeju Gothic', serif; }
-	#menu4 { background-color:#4080FF; border:none; color:white; width:200px; height:250px; font-family: 'Jeju Gothic', serif; }
-	#menu5 { background-color:#4080FF; border:none; color:white; width:200px; height:250px; font-family: 'Jeju Gothic', serif; }
+	#show { width:45%; height:600px; float:left; background:#019DDD; }
+	.btns { width:55%; height:600px; float:left; }
+	#news1 { background-color:#019DDD; border:none; color:white; width:400px; height:100px; font-family: 'Jeju Gothic', serif; }
+	#news2 { background-color:#019DDD; border:none; color:white; width:400px; height:100px; font-family: 'Jeju Gothic', serif; }
+	#news3 { background-color:#019DDD; border:none; color:white; width:400px; height:100px; font-family: 'Jeju Gothic', serif; }
+	#news4 { background-color:#019DDD; border:none; color:white; width:400px; height:100px; font-family: 'Jeju Gothic', serif; }
+	
 	
 
 </style>
+
+<script src="//code.jquery.com/jquery.min.js"></script>
+	<script>
+	function open_in_main(url) 
+	{
+	$('#subframe').attr('src', url);
+	}
+	</script>
+	
 </head>
 <body>
 
+<div id=main>
+
 <div id=show align=center>
 
-안녕하세요.<br>
-항상 여러분의 건강을 우선으로 하는<br>
-우리병원입니다.<br>
-<br>
-방문해주셔서 감사합니다.
+<iframe id=subframe width=600px height=600px frameborder=0 align=center src="/hospital/main/news1"></iframe>
 
 </div> 
 
 <div class=btns align=center>
-<a href=#><button type=button id=menu0>메뉴1</button></a>
-<a href=#><button type=button id=menu1>메뉴2</button></a>
-<a href=#><button type=button id=menu2>메뉴3</button></a>
-<br>
-<a href=#><button type=button id=menu3>메뉴4</button></a>
-<a href=#><button type=button id=menu4>메뉴5</button></a>
-<a href=#><button type=button id=menu5>메뉴6</button></a>
+우리병원 소식지<p>
+<button type=button id=news1 onclick='open_in_main("/hospital/main/news1")'>2인실 15실 확충</button> <br>
+<button type=button id=news2 onclick='open_in_main("/hospital/main/news2")'>뉴스2</button> <br>
+<button type=button id=news3 onclick='open_in_main("/hospital/main/news3")'>뉴스3</button> <br>
+<button type=button id=news4 onclick='open_in_main("/hospital/main/news4")'>뉴스4</button> <br>
+</div>
+
 </div>
 
 </body>

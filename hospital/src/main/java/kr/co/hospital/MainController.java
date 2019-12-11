@@ -31,5 +31,31 @@ public class MainController {
 	{
 		return "/main/sorry";
 	}
+	
+	@RequestMapping(value="/main/news1")
+	public String news1()
+	{
+		return "/main/news1";
+	}
+	
+	@RequestMapping(value="/main/news2")
+	public String news2()
+	{
+		return "/main/news2";
+	}
+	
+	@RequestMapping(value="/main/news3")
+	public String news3()
+	{
+		return "/main/news3";
+	}
+	
+	@RequestMapping(value="/main/news4")
+	public String news4()
+	{
+		return "/main/news4";
+	}
+	
+	
 
 }

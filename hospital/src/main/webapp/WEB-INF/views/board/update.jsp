@@ -5,33 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-// 
-</script>
 </head>
 <body>
-<!-- 관리자 공지사항 부분
-- 관리자(admin)으로만 글작성 => session.getAttribute("userid").equals("admin"))
-- 글 작성후 list.jsp로 이동 => response.sendRedirect("list.jsp") -->
-<form method="post" action="write_ok">
+<form method="post" action="update_ok">
+<input type="hidden" name="id" value="${boarddto.id}">
 <table width="600" cellpadding="0" cellspacing="0">
     <tr>
-        <td width="600" colspan="6">글작성하기</td>
+        <td width="600" colspan="6">글수정하기</td>
     </tr>
     <tr>
         <td width="100" height="10">제목</td>
         <td width="500" height="22" colspan="5">
-		<input type="text" name="wtitle" size="68">
+		<input type="text" name="wtitle" size="68" value="${boarddto.wtitle}">
 		</td>
     </tr>
     <tr>
         <td width="100" height="10">작성자</td>
         <td width="100" height="22">
-		<input type="text" name="wname" size="12">
+		<input type="text" name="wname" size="12" value="${boarddto.wname}">
 		</td>
         <td width="100" height="22">비밀번호</td>
         <td width="100" height="22">
-		<input type="password" name="wpwd" size="12">
+		<input type="password" name="wpwd" size="12" value="${boarddto.wpwd}">
 		</td>
         <td width="100" height="22">분류</td>
         <td width="100" height="22">
@@ -48,12 +43,12 @@
     <tr>
         <td width="100">내용</td>
         <td width="500" colspan="5">
-		<textarea name="wcont" rows="14" cols="68"></textarea>
+		<textarea name="wcont" rows="14" cols="68">${boarddto.wcont}</textarea>
 		</td>
     </tr>
     <tr>
         <td width="600" colspan="6">
-		<input type="submit" value="작성">
+		<input type="submit" value="수정">
 		</td>
     </tr>
 </table>
