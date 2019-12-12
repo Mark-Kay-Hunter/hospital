@@ -16,7 +16,7 @@
 	#link { width:auto; height:20px; align:right; background:#019DDD; }
 	#menu { width:auto; height:50px; align:center; background:#019DDD; color:#FAFAFA; }
 	#main { width:auto; height:600px; }
-	#footer { width:auto; height:100px; }
+	#footer { width:auto; height:100px;  background:#019DDD; color:#FAFAFA; }
 	
 	#up1 { width:25%; height:110px; float:left; }
 	#up2 { width:75%; height:110px; float:left; }
@@ -80,21 +80,14 @@
 	
 	</div>
 	
-	
+	<br>
 	<div id="footer">
-		<div class="container">
-			<div class="row">
-			<div class="col-md-4 col-sm-12">
-				<p>Copyright &copy; 2019 MK+JY+SG of MRHI <br> 
-				All Rights Reserved.</p>
-			</div>
+		<div id=copyright>
+			Copyright &copy; 2019 MK+JY+SG of MRHI All Rights Reserved.
+		</div>
 
-		<div class="col-md-4 col-sm-12">
-			<dl class="social-icons">
-				<dd><a href="#">MK</a></dd>
-				<dd><a href="#">JY</a></dd>
-				<dd><a href="#">SG</a></dd>
-			</dl>
+		<div id="member">
+		MK JY SG
 		</div>
 
 		<div class="col-md-2 col-md-offset-2 col-sm-12">

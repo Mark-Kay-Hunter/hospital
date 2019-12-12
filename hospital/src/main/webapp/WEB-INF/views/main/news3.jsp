@@ -11,7 +11,7 @@
 	pre { font-family: 'Jeju Gothic', serif; font-size:15px; color:#FAFAFA; display:table-cell; text-align:center; vertical-align:middle; }
 	div { display:table; width:560px; height:500px;}
 
-</style>
+</styleㅉ>
 
 
 </head>
@@ -19,6 +19,8 @@
 
 <div id=news3>
 <pre>
+
+<img src="resources/image/news3.png">
 
 2019년 11월 1일
 
