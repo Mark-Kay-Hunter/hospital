@@ -54,12 +54,19 @@
 	
 
 	<div id="link" align=right>
-		<nav id="nav">
+	<!--	<nav id="nav">
 			<dl>
 				<dd><button id=go_login onclick='window.open("/hospital/member/login", "로그인", "width=600px, height=350px")'>로그인</button></dd>
 				<dd><button id=go_signup onclick='window.open("/hospital/member/signup", "회원가입", "width=650px, height=550px")'>회원가입</button></dd>
 			</dl>
-		</nav>
+		</nav> -->
+		
+		 <nav id="nav">
+			<dl>
+				<dd><button id=go_login onclick='window.open("/hospital/member/login", "로그인", "width=600px, height=350px")'><b><u>김회원</u></b>님, 환영합니다!</button></dd>
+				<dd><button id=go_signup onclick='window.open("/hospital/member/modify", "회원가입", "width=650px, height=550px")'>회원정보수정</button></dd>
+			</dl>
+		</nav>  
 	</div>	
 	
 	<div id="menu" align=center>
@@ -98,6 +105,8 @@
 			</div>
 		</div>
 	</div>
+	
+	<br><br><br><br><br><br>
 
 <div id=temp>
 

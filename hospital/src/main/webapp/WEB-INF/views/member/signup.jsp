@@ -150,7 +150,7 @@
         <td height="1" colspan="2" bgcolor="#FFFFFF" width="584"></td>
     </tr>
     <tr>
-        <th height="30" colspan="2" bgcolor="#EEEEEE" style="color:#4989D2;" width="584">회원가입</th>
+        <th height="30" colspan="2" bgcolor="#EEEEEE" style="color:#4989D2;" width="584"><font size=16px>회원가입</font></th>
     </tr>
     <tr>
         <td height="1" colspan="2" bgcolor="#FFFFFF" width="584"></td>
@@ -160,7 +160,7 @@
     </tr>
     <tr>
         <td height="30" bgcolor="#FFFFFF" align="center" width="98">ID(회원번호)</td>
-        <td bgcolor="#FFFFFF" width="480"><input type="text" name="idno" id="idno" style="border:1px solid #DBDBDB;" maxlength="8" readonly> ID(회원번호)는 자동생성됩니다</td>
+        <td bgcolor="#FFFFFF" width="480"><input type="text" name="idno" id="idno" style="border:1px solid #DBDBDB;" maxlength="8" readonly placeholder="93460001"> ID(회원번호)는 자동생성됩니다</td>
     </tr>
     <tr>
         <td height="1" colspan="2" bgcolor="#7AACFF"  width="584"></td>
@@ -233,7 +233,27 @@
         <td height="30" bgcolor="#F3FAFB" align="center" colspan="2" width="584">회원약관</td>
     </tr>
     <tr>
-        <td height="15" bgcolor="#FFFFFF" align="center" colspan="2" width="584">웅앵웅 쵸키포키</td>
+        <td height="15" bgcolor="#FFFFFF" align="center" colspan="2" width="584">
+        
+        제1조(목적)<br>
+<br>
+본 회원약관은 우리병원이 운영하는 홈페이지 관련 서비스(이하 '서비스'라 한다)를 이용함에 따라 관리자와 이용자(이하 '회원'이라 한다)의 권리, 의무 및 책임사항을 규정함을 목적으로 한다.
+<br>
+제2조(약관의 효력)
+<br>
+1. 본 약관은 회원 가입 시 회원들에게 통지함으로써 효력이 발생한다.
+2. 약관의 변경사항 및 내용은 '갑'의 홈페이지에 게시하는 방법으로 공시한다.
+<br>
+제3조(관리자의 의무)<br>
+1. 회원은 가입시 정확한 정보를 입력해야 하며, 만약 허위로 입력시 최대한 빠른 시일내에 정확한 내용으로 수정하여야 한다.<br>
+2. 관리자는 계속적, 안정적으로 서비스를 제공할 수 있도록 최선의 노력을 다하여야 한다.<br>
+3. 관리자는 항상 회원의 신용정보를 포함한 개인신상정보의 보안에 대하여 관리에 만전을 기함으로서 회원의 정보보안에 최선을 다하여야 한다.<br>
+<br>
+제4조(개인정보보호)<br>
+<br>
+1. 관리자는 이용자의 정보수집시 서비스의 제공에 필요한 최소한의 정보를 수집한다.<br>
+2. 회원은 언제든지 관리자가 가지고 있는 자신의 개인정보에 대해 열람 및 오류정정을 요구할 수 있으며 관리자는 이에 대해 지체없이 처리한다.<br>
+         </td>
     </tr>
     <tr>
         <td height="15" align="center" colspan="2" bgcolor="white" width="584"><input type="checkbox" name="okay">약관에 동의하며 회원가입합니다.</td>

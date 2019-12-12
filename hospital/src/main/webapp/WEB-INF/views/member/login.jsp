@@ -5,10 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>우리병원 로그인</title>
+
+<style>
+
+	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+	body { font-family: 'Jeju Gothic', serif; align:center; font-size:15px; }
+	
+	#login_ok { width:250px; height:50px; border:none; background-color:#019DDD; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; }
+	#go_signup { width:250px; height:50px; border:none; background-color:#019DDD; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; }
+	
+	
+</style>
+
 </head>
 <body>
 
-
+<center>
 <table width="560" height="252" cellpadding="0" cellspacing="0">
     
 	<tr>
@@ -21,14 +33,14 @@
         <td width="100">
             <p align="right">ID[회원번호]</p>
         </td>
-        <td width="460" colspan="2"><input type="text" size="40" name="id" value="8자리의 숫자를 입력해주세요" maxlength="8"></td>
+        <td width="460" colspan="2">　　<input type="text" size="40" name="id" value="8자리의 숫자를 입력해주세요" maxlength="8"></td>
     </tr>
 	
     <tr>
         <td width="100">
             <p align="right">비밀번호</p>
         </td>
-        <td width="460" colspan="2"><input type="password" size="40" name="passw"></td>
+        <td width="460" colspan="2">　　<input type="password" size="40" name="passw"></td>
     </tr>
 	
     <tr>
@@ -40,14 +52,15 @@
 	
     <tr>
         <td width="280" height="60" colspan="2">
-            <p align="center"> <input type="button" value="로그인"> </p>
+            <button id=login_ok>로그인</button>
         </td>
         <td width="280" height="60">
-            <p align="center"> <input type="button" value="회원가입"> </p>
+            <button id=go_signup>회원가입</button>
         </td>
     </tr>
 	
 </table>
+</center>
 
 </body>
 

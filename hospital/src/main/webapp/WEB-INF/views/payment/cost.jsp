@@ -12,12 +12,14 @@
 	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 	div { font-family: 'Jeju Gothic', serif; width:100%; font-size:16px; }
 	
-	#cost_ins { display:inline-block; }
+	#cost_all { font-size:24px; }
 	#cost_doc { display:inline-block; }
 	#cost_btns { clear:both; }
 	
-	#from_name { display:inline-block; }
-	#from_total { display:inline-block; }
+	table { text-align:center; }
+	
+	#go_pay { width:250px; height:50px; border:none; background-color:#019DDD; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; }
+	#go_back { width:250px; height:50px; border:none; background-color:#019DDD; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; }
 
 </style>
 
@@ -25,16 +27,31 @@
 
 <div id=cost_all align=center>
 
-<div id=from_name><b><font color=#15459E>${name}</div>님</font></b>께서 결제하실 총금액은 <div id=from_total><b><font color=#15459E>${total_cost}원</div></font></b>입니다.
+<b><font color=#15459E>김회원</font></b>께서 결제하실 총금액은 <br><b><font color=#15459E>16000원</font></b>입니다.
 
 </div>
+
+<p><p>
 
 <div id=cost_indi align=center>
 
-	<div id=cost_ins align=center>검사내역출력</div>
-	<div id=cost_doc align=center>진료내역출력</div>
+<table width=300px height=200px>
+
+<tr height=50px>
+	<td>검사예약내역</td>
+	<td>진료예약내역</td>
+</tr>
+
+<tr height=100px>
+	<td>2019-12-12 17:30<BR>치료경과검사</td>
+	<td>2019-12-12 17:00<BR>내과/박교수</td>
+</tr>
+
+</table>
 
 </div>
+
+<p><p>
 
 <div id=cost_btns align=center>
 
@@ -44,8 +61,6 @@
 </div>
 
 <div id=cost_noti align=center>
-
-이걸 뭐라고 써야하나.. 
 
 </div>
 

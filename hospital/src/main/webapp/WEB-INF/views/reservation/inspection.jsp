@@ -8,8 +8,15 @@
 	@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 	body { font-family: 'Jeju Gothic', serif; }
 
-	#calender {width:400px; height:300px; background-color:blue;}
-	#time {width:400px; height:30px; background-color:red;}
+	#shc { align:center; }
+	#scal { float:left; }
+	#stim { float:left; }
+	#sel { clear:both; }
+	
+	#login_ok { width:250px; height:50px; border:none; background-color:#019DDD; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; }
+	#go_signup { width:250px; height:50px; border:none; background-color:#019DDD; font-family: 'Jeju Gothic', serif; font-size:20px; color:#FAFAFA; }
+	
+	
 	
 </style>
 
@@ -79,7 +86,7 @@ tbCalendarYM.innerHTML = today.getFullYear() + "년 " + (today.getMonth() + 1) +
 			&& i == date.getDate()) 
 		{
 		// 오늘
-		cell.bgColor = "#FAF58C";
+		cell.bgColor = "#5cc4ef";
 		}
 	}
 }
@@ -142,10 +149,9 @@ function inspselect()
 </head>
 
 <body>
-
-
-
-<table id="calendar" border="3" align="center" style="border-color:#3333FF ">
+<div id=shc align=center>
+<span id=scal>
+<table id="calendar" border="3" align="center" style="border-color:#3333FF; font-size:14px;" width=300px height=300px>
     <tr>
         <!-- label은 마우스로 클릭을 편하게 해줌 -->
         <td><label onclick="prevCalendar()">◀</label></td>
@@ -162,11 +168,44 @@ function inspselect()
         <td align="center"><font color ="skyblue">토</td>
     </tr>
 </table>
-
+</span>
+<span id=stim>
+<table id="timetable" border="3" align="center" style="border-color:#3333FF; font-size:14px;" width=300px height=300px>
+    <tr>
+        <td>09:00</td>
+        <td>11:00</td>
+        <td>14:00</td>
+        <td>16:00</td>
+    </tr>
+    <tr>
+        <td>09:30</td>
+        <td>11:30</td>
+        <td>14:30</td>
+        <td>16:30</td>
+    </tr>
+    <tr>
+        <td>10:00</td>
+        <td>12:00</td>
+        <td>15:00</td>
+        <td>17:00</td>
+    </tr>
+    <tr>
+        <td>10:30</td>
+        <td>12:30</td>
+        <td>15:30</td>
+        <td>17:30</td>
+    </tr>
+   
+</table>
+</span>
 <script>buildCalendar();</script>
+</div>
 
-<p>[휴일검사 가능시간]토요일: 오전 9시 ~ 12시 일요일/공휴일: 불가(입원환자 우선)</p>
-<p>선택한 예약일: 0000-00-00</p>
+<p><p>
+
+<div id=sel>
+
+<p>[휴일검사 가능시간]토요일: 오전 9시 ~ 13시 일요일/공휴일: 불가(입원환자 우선)</p>
 
 <p>
 
@@ -216,8 +255,11 @@ function inspselect()
 		<td width="450" colspan="3">※ 진료내역에 따라 당일 추가적인 검진이 있을 수 있습니다.</td>
     </tr>
 </table>
+</div>
 
 </form>
+<p><p><p>
+<button id=login_ok>예약하기</button>　　<button id=login_ok>돌아가기</button>
 
 </body>
 

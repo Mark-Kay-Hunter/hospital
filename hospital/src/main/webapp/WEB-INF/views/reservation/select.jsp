@@ -30,9 +30,9 @@
 <a href=/hospital/reservation/inspection><button type=button id=go_ins>검사예약</button></a>
 <a href=/hospital/reservation/doctor><button type=button id=go_doc>진료예약</button></a>
 <br>
-<a href=/hospital/schedule/check><button type=button id=go_my>일정확인</button></a>
+<!-- <a href=/hospital/schedule/check><button type=button id=go_my>일정확인</button></a>
 <a href=/hospital/schedule/change><button type=button id=go_md>예약변경</button></a>
-<a href=/hospital/schedule/cancel><button type=button id=go_cc>예약취소</button></a>
+<a href=/hospital/schedule/cancel><button type=button id=go_cc>예약취소</button></a> -->
 </div>
 
 </body>
